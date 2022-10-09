@@ -1,34 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/09 12:03:35 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/09 12:06:30 by ahmaymou         ###   ########.fr       */
+/*   Created: 2022/10/09 11:03:25 by ahmaymou          #+#    #+#             */
+/*   Updated: 2022/10/09 12:13:12 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*Function name ft_putstr_fd
-Prototype void ft_putstr_fd(char *s, int fd);
+/* Function name ft_putnbr_fd
+Prototype void ft_putnbr_fd(int n, int fd);
 Fichiers de rendu -
-Paramètres s: La chaîne de caractères à écrire.
+Paramètres n: L’entier à écrire.
 fd: Le descripteur de fichier sur lequel écrire.
 Valeur de retour Aucune
 Fonctions externes autorisées
 write
-Description Écrit la chaîne de caractères ’s’ sur le
-descripteur de fichier donné.*/
+Description Écrit l’entier ’n’ sur le descripteur de fichier
+donné.*/
 
 #include <stddef.h>
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+void	ft_putnbr_fd(int nb, int fd)
 {
-	while (*s)
+	if (nb < 0)
 	{
-		ft_putchar_fd(*s, fd);
-		s++;
+		if (nb == -2147483648)
+		{
+			write(fd, "-2147483648", 11);
+		}
+		else
+			ft_putchar_fd('-', fd);
+		nb = nb * (-1);
 	}
+	if (nb >= 10)
+	{
+		ft_putnbr_fd(nb / 10, fd);
+		ft_putnbr_fd(nb % 10, fd);
+	}
+	if (nb < 10 && nb >= 0)
+		ft_putchar_fd(nb + 48, fd);
 }

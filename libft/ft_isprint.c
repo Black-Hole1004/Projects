@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/09 09:44:43 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/09 12:03:07 by ahmaymou         ###   ########.fr       */
+/*   Created: 2022/10/09 10:14:02 by ahmaymou          #+#    #+#             */
+/*   Updated: 2022/10/09 10:16:30 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* Function name ft_putchar_fd
-Prototype void ft_putchar_fd(char c, int fd);
-Fichiers de rendu -
-Paramètres c: Le caractère à écrire.
-fd: Le descripteur de fichier sur lequel écrire.
-Valeur de retour Aucune
-Fonctions externes autorisées
-write
-Description Écrit le caractère ’c’ sur le descripteur de
-fichier donné.*/
 #include <stddef.h>
-#include "libft.h"
 
-void	ft_putchar_fd(char c, int fd)
+int	ft_isprint(int c)
 {
-	write (fd, &c, 1);
+	if (0 <= c && c <= 31)
+		return (1);
+	return (0);
 }
