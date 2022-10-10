@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 14:58:35 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/10 11:43:27 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/10 16:50:55 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,45 +24,7 @@ typedef struct s_list
 
 size_t	ft_strlen(const char *s);
 
-size_t	ft_strlen(const char *s)
-{
-	unsigned int	len;
-
-	len = 0;
-	while (*s)
-	{
-		s++;
-		len++;
-	}
-	return (len);
-}
-
-void	ft_putchar_fd(char c, int fd)
-{
-	write (fd, &c, 1);
-}
-
-void	ft_putstr_fd(char *s, int fd)
-{
-	while (*s)
-	{
-		ft_putchar_fd(*s, fd);
-		s++;
-	}
-}
-
-void	*ft_bzero(void *b, size_t len)
-{
-	char	*s;
-
-	s = (char *)b;
-	while (len)
-	{
-		*s = 0;
-		s++;
-		len--;
-	}
-	return ((void *)s);
-}
 char	*ft_substr(char const *s, unsigned int start, size_t len);
+
+int		ft_lstsize(t_list *lst);
 #endif

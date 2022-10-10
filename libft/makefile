@@ -1,12 +1,18 @@
 NAME = libft.a
 
+CC = gcc
+
 FLAGS = -Wall -Werror -Wextra
 
-SRC = ft_*.c
+SRCM = ft_*.c
 
-all:
-	gcc -o $(NAME) $(FLAGS) $(SRC)
+SRCBONUS = ft_lst*.c
+all : 
+	$(CC)   $(SRCM) -c
+	echo "hello"
 
+BONUS:
+	$(CC) $(FLAGS) $(SRCBONUS)
 clean:
 	rm -f *.o
 fclean:
@@ -14,3 +20,15 @@ fclean:
 	rm -rf $(NAME)
 re:
 	fclean all
+
+#!/bin/sh
+
+#cc="gcc"
+#src=*.c
+#flags="-c -Wall -Werror -Wextra"
+#lib_name="libft.a"
+
+#$cc $flags $src
+#ar rc $lib_name *.o
+#ranlib $lib_name
+#rm *.o

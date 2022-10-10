@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 10:30:40 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/10 10:22:07 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/10 17:04:32 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char	*skip_charset(char const *s, char c)
 {
 	while (*s && *s == c)
 		s++;
-	return (s);
+	return ((char *)s);
 }
 
 int	count_words(char const *s, char c)
@@ -80,7 +80,8 @@ char	*ready_word(char const *s, char c)
 	int		i;
 
 	i = 0;
-	word_len = word_length;
+	word_len = word_length(s, c);
+	word = (char *)malloc(word_len * sizeof (char));
 	while (word_len)
 	{
 		word[i] = s[i];
@@ -93,7 +94,6 @@ char	*ready_word(char const *s, char c)
 char	**ft_split(char const *s, char c)
 {
 	int		i;
-	int		j;
 	int		words_count;
 	char	**to_return;
 
@@ -110,4 +110,5 @@ char	**ft_split(char const *s, char c)
 		}
 		s = skip_charset(s, c);
 	}
+	return (to_return);
 }

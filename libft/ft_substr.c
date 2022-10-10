@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 10:37:49 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/09 11:01:47 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/10 17:02:27 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 // Cette nouvelle chaîne commence à l’index ’start’ et
 // a pour taille maximale ’len’.
 #include <stddef.h>
+#include "libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {

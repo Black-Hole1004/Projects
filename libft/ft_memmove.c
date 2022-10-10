@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 14:51:05 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/08 14:52:02 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/10 14:08:32 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	char	*d;
 	char	*temp;
 
-	*s = (char *)src;
-	*d = (char *)dst;
+	s = (char *)src;
+	d = (char *)dst;
 	temp = (char *)dst;
 	while (len)
 	{

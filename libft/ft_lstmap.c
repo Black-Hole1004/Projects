@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 13:17:34 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/10 13:33:49 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/10 16:58:44 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,19 @@ Description Itère sur la liste ’lst’ et applique la fonction
 liste résultant des applications successives de
 ’f’. La fonction ’del’ est là pour détruire le
 contenu d’un élément si nécessaire.*/
+void	ft_lstadd_back(t_list **lst, t_list *new)
+{
+	t_list	*temp;
+
+	temp = *lst;
+	if (!(*lst))
+	{
+		while (temp->next)
+			temp = temp->next;
+		temp->next = new;
+	}
+}
+
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*to_return;
@@ -44,4 +57,5 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		free(temp);
 		temp = temp->next;
 	}
+	return (to_return);
 }

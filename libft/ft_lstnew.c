@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 11:35:31 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/10 11:45:40 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/10 16:54:24 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,5 @@ t_list	*ft_lstnew(void *content)
 	elem = malloc(sizeof(t_list));
 	elem->content = content;
 	elem->next = NULL;
+	return (elem);
 }

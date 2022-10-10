@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 14:25:11 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/09 10:24:28 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/10 17:01:55 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char	*strrchr(const char *s, int c)
 	while (*s)
 	{
 		if (*s == c)
-			temp = s;
+			temp = (char *)s;
 	s++;
 	}
 	return (temp);
