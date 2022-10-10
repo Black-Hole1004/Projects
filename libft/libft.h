@@ -6,19 +6,27 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 14:58:35 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/09 15:33:10 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/10 11:43:27 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # include<stddef.h>
+# include <stdlib.h>
+# include<unistd.h>
+
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}t_list;
 
 size_t	ft_strlen(const char *s);
 
 size_t	ft_strlen(const char *s)
 {
-	int	len;
+	unsigned int	len;
 
 	len = 0;
 	while (*s)

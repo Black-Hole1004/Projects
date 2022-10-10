@@ -1,38 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/08 14:15:02 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/10 12:22:06 by ahmaymou         ###   ########.fr       */
+/*   Created: 2022/10/10 12:03:59 by ahmaymou          #+#    #+#             */
+/*   Updated: 2022/10/10 12:06:57 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-void	*ft_bzero(void *b, size_t len)
+#include "libft.h"
+/* Function name ft_lstlast
+Prototype t_list *ft_lstlast(t_list *lst);
+Fichiers de rendu -
+Paramètres lst: Le début de la liste.
+Valeur de retour Dernier élément de la liste
+Fonctions externes autorisées
+Aucune
+Description Renvoie le dernier élément de la liste.*/
+t_list	*ft_lstlast(t_list *lst)
 {
-	char	*s;
+	t_list	*temp;
 
-	s = (char *)b;
-	while (len)
-	{
-		*s = 0;
-		s++;
-		len--;
-	}
-	return ((void *)s);
-}
-
-void	*ft_calloc(size_t count, size_t size)
-{
-	void	*ptr;
-
-	ptr = (void *)malloc(count * size);
-	if (!ptr)
+	temp = lst;
+	if (!lst)
 		return (NULL);
-	ft_bzero(ptr, count);
-	return (ptr);
+	while (temp->next)
+		temp = temp->next;
+	return (temp);
 }
