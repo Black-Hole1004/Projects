@@ -24,8 +24,13 @@ Aucune
 Description Ajoute l’élément ’new’ au début de la liste.*/
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	if (lst == NULL)
+	if (!new)
+		return ;
+	if (!lst)
 		*lst = new;
 	else
+	{
 		new->next = *lst;
+		*lst = new;
+	}
 }

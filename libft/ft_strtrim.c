@@ -84,7 +84,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	}
 	if (found_set_last(s1, set))
 	{
-		while (i++ < (ft_strlen(s1) - ft_strlen(set)))
+		while (i++ < (unsigned int)(ft_strlen(s1) - ft_strlen(set)))
 			to_return[i] = s1[i];
 	}
 	to_return[i] = '\0';

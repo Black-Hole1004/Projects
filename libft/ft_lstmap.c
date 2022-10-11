@@ -53,7 +53,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	while (temp)
 	{
 		ft_lstadd_back(&to_return, f(temp));
-		del(temp);
+		del(temp->content);
 		free(temp);
 		temp = temp->next;
 	}
