@@ -1,0 +1,23 @@
+NAME = libft.a
+CC = gcc
+FLAGS = -Wall -Wextra -Werror
+SRC = ${wildcard ft*.c}
+SRCBONUS = ${wildcard ft_lst*.c}
+OBJ = ${SRC:.c=.o}
+
+all: ${NAME}
+
+${NAME} : ${OBJ}
+	@ar rcs ${NAME} ${OBJ}
+
+bonus:
+	$(CC) $(FLAGS) $(SRCBONUS)
+
+%.o : %.c
+	@${CC} ${FLAGS} -c $<
+
+clean :
+	@rm ${OBJ}
+
+fclean : clean
+	@rm ${NAME}
