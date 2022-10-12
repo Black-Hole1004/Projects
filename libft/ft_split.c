@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 10:30:40 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/10 17:04:32 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/12 14:37:57 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,91 +24,85 @@ Description Alloue (avec malloc(3)) et retourne un tableau
 de chaînes de caractères obtenu en séparant ’s’ à
 l’aide du caractère ’c’, utilisé comme délimiteur.
 Le tableau doit être terminé par NULL.*/
-
-#include <stddef.h>
 #include "libft.h"
 
-char	*skip_charset(char const *s, char c)
+int	is_charset(char c, char charset)
 {
-	while (*s && *s == c)
-		s++;
-	return ((char *)s);
+	int	i;
+
+	i = 0;
+	if (c == charset)
+		return (1);
+	return (0);
 }
 
-int	count_words(char const *s, char c)
+int	count_words(const char *str, char charset)
 {
-	int	count;
 	int	i;
+	int	count;
 
 	count = 0;
 	i = 0;
-	if (!*s)
-		return (0);
-	while (*s)
+	while (str[i] != '\0')
 	{
-		if (*s == c)
-		{
-			s = skip_charset(s, c);
-			if (!(*s))
-				count++;
-			i = 1;
-		}
-		if (!i)
-			s++;
+		while (str[i] != '\0' && is_charset(str[i], charset))
+			i++;
+		if (str[i] != '\0')
+			count++;
+		while (str[i] != '\0' && !is_charset(str[i], charset))
+			i++;
 	}
 	return (count);
 }
 
-int	word_length(char const *s, char c)
+int	word_length(const char *str, char charset)
 {
-	int	len;
-
-	len = 0;
-	s = skip_charset(s, c);
-	while (*s && *s == c)
-	{
-		s++;
-		len++;
-	}
-	return (len);
-}
-
-char	*ready_word(char const *s, char c)
-{
-	int		word_len;
-	char	*word;
-	int		i;
+	int	i;
 
 	i = 0;
-	word_len = word_length(s, c);
-	word = (char *)malloc(word_len * sizeof (char));
-	while (word_len)
+	while (str[i] && !is_charset(str[i], charset))
+		i++;
+	return (i);
+}
+
+char	*ready_word(const char *str, char charset)
+{
+	int		length_of_word;
+	int		i;
+	char	*word;
+
+	i = 0;
+	length_of_word = word_length(str, charset);
+	word = (char *)malloc(sizeof(char) * (length_of_word + 1));
+	while (i < length_of_word)
 	{
-		word[i] = s[i];
-		word_len--;
+		word[i] = str[i];
 		i++;
 	}
+	word[i] = '\0';
 	return (word);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(const char *str, char c)
 {
+	char	**strings;
 	int		i;
-	int		words_count;
-	char	**to_return;
 
-	words_count = count_words(s, c);
-	i = -1;
-	to_return = (char **)malloc((words_count + 1) * sizeof(char *));
-	while (*s)
+	i = 0;
+	strings = (char **)malloc(sizeof(char *)
+			* (count_words(str, c) + 1));
+	while (*str != '\0')
 	{
-		s = skip_charset(s, c);
-		if (*s)
+		while (*str != '\0' && is_charset(*str, c))
+			str++;
+		if (*str != '\0')
 		{
-			to_return[i] = ready_word(s, c);
+			strings[i] = ready_word(str, c);
 			i++;
 		}
-		s = skip_charset(s, c);
+		while (*str && !is_charset(*str, c))
+			str++;
 	}
-	return (to_return);
+	strings[i] = 0;
+	return (strings);
 }

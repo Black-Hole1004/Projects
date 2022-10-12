@@ -23,6 +23,12 @@ Description Itère sur la liste ’lst’ et applique la fonction
 ’f’ au contenu chaque élément.*/
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	if (lst)
-		f(lst);
+	if (lst && f)
+	{
+		while (lst)
+		{
+			f(lst->content);
+			lst = lst->next;
+		}
+	}
 }

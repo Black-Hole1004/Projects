@@ -1,34 +1,84 @@
 NAME = libft.a
 
 CC = gcc
+CFLAGS = -Wall -Wextra -Werror
+AR = ar rcs
+RM = rm -f
 
-FLAGS = -Wall -Werror -Wextra
+FILES = ft_memset \
+		ft_bzero \
+		ft_memcpy \
+		ft_memmove \
+		ft_memchr \
+		ft_memcmp \
+		ft_strlen \
+		ft_strlcpy \
+		ft_strlcat \
+		ft_strchr \
+		ft_strrchr \
+		ft_strnstr \
+		ft_strncmp \
+		ft_atoi \
+		ft_isalpha \
+		ft_isdigit \
+		ft_isalnum \
+		ft_isascii \
+		ft_isprint \
+		ft_toupper \
+		ft_tolower \
+		ft_calloc \
+		ft_strdup \
+		ft_substr \
+		ft_strjoin \
+		ft_strtrim \
+		ft_split \
+		ft_itoa \
+		ft_strmapi \
+		ft_putchar_fd \
+		ft_putstr_fd \
+		ft_putendl_fd \
+		ft_putnbr_fd \
+		#ft_strtok \
+		ft_strcmp \
+		get_next_line \
 
-SRCM = ft_*.c
+FILES_B = 	ft_lstnew \
+	  		ft_lstadd_front \
+	  		ft_lstsize \
+	  		ft_lstlast \
+	  		ft_lstadd_back \
+	  		ft_lstdelone \
+	  		ft_lstclear \
+	  		ft_lstiter \
+	  		ft_lstmap
 
-SRCBONUS = ft_lst*.c
-all : 
-	$(CC)   $(SRCM) -c
-	echo "hello"
+SRCS_DIR = ./
+SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))
+SRCS_B = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES_B)))
 
-BONUS:
-	$(CC) $(FLAGS) $(SRCBONUS)
+OBJS_DIR = ./
+OBJS = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(FILES)))
+OBJS_B = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(FILES_B)))
+
+
+.c.o: $(SRCS)
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+$(NAME): $(OBJS)
+	$(AR) $@ $^
+	ranlib $(NAME)
+
+bonus: $(OBJS_B)
+	$(AR) $(NAME) $^
+
+all: $(NAME)
+
 clean:
-	rm -f *.o
-fclean:
-	clean
-	rm -rf $(NAME)
-re:
-	fclean all
+	$(RM) $(OBJS) $(OBJS_B)
 
-#!/bin/sh
+fclean: clean
+	$(RM) $(NAME)
 
-#cc="gcc"
-#src=*.c
-#flags="-c -Wall -Werror -Wextra"
-#lib_name="libft.a"
+re: clean all
 
-#$cc $flags $src
-#ar rc $lib_name *.o
-#ranlib $lib_name
-#rm *.o
+.PHONY: bonus all clean fclean re

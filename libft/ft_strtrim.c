@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 12:21:30 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/09 17:41:42 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/12 09:55:09 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	}
 	if (found_set_last(s1, set))
 	{
-		while (i++ < (ft_strlen(s1) - ft_strlen(set)))
+		while (i++ < (unsigned int )(ft_strlen(s1) - ft_strlen(set)))
 			to_return[i] = s1[i];
 	}
 	to_return[i] = '\0';
