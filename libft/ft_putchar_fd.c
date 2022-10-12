@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 09:44:43 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/09 12:03:07 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/12 17:48:11 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ Fonctions externes autorisées
 write
 Description Écrit le caractère ’c’ sur le descripteur de
 fichier donné.*/
-#include <stddef.h>
 #include "libft.h"
 
 void	ft_putchar_fd(char c, int fd)

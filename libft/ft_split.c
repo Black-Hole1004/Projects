@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 10:30:40 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/12 14:37:57 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/12 18:45:35 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ de chaînes de caractères obtenu en séparant ’s’ à
 l’aide du caractère ’c’, utilisé comme délimiteur.
 Le tableau doit être terminé par NULL.*/
 #include "libft.h"
-
+/* [crash]: you did not protect your split*/
 int	is_charset(char c, char charset)
 {
 	int	i;
@@ -91,6 +91,8 @@ char	**ft_split(const char *str, char c)
 	i = 0;
 	strings = (char **)malloc(sizeof(char *)
 			* (count_words(str, c) + 1));
+	if (!strings)
+		return (NULL);
 	while (*str != '\0')
 	{
 		while (*str != '\0' && is_charset(*str, c))

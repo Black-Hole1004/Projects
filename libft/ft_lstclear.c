@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 13:06:07 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/10 13:14:54 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/12 18:39:48 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,12 @@ free
 Description Supprime et libère la mémoire de l’élément passé en
 paramètre, et de tous les éléments qui suivent, à
 l’aide de ’del’ et de free(3)
-Enfin, le pointeur initial doit être mis à NULL.*/
-void	ft_lstclear(t_list **lst, void (*del)(void*))
+Enfin, le pointeur initial doit être mis à NULL.
+
+[crash]: your lstclear does not work with basic input
+[crash]: bad call number of the function pointer
+*/
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
 	t_list	*temp;
 

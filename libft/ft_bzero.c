@@ -6,14 +6,13 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 14:56:08 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/08 14:57:05 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/12 17:52:12 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
-void	*ft_bzero(void *b, size_t len)
+void	ft_bzero(void *b, size_t len)
 {
 	char	*s;
 
@@ -24,5 +23,4 @@ void	*ft_bzero(void *b, size_t len)
 		s++;
 		len--;
 	}
-	return ((void *)s);
 }

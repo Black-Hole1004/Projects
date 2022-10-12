@@ -6,13 +6,13 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 14:54:20 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/08 14:54:21 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/12 18:24:07 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isdigit(int c)
 {
-	if (0 <= c && c <= 9)
-		return (1);
-	return (0);
+	if (c < '0' || c > '9')
+		return (0);
+	return (1);
 }

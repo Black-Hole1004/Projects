@@ -6,13 +6,15 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 14:55:03 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/08 14:55:07 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/12 18:25:04 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int	ft_isalnum(int c)
 {
-	if ((65 <= c && c <= 90) || (97 <= c && c <= 122) || (0 <= c && c <= 9))
+	if ((65 <= c && c <= 90) || (97 <= c && c <= 122) || ft_isdigit(c))
 		return (1);
 	return (0);
 }

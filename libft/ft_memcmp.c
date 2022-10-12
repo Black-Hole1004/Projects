@@ -6,20 +6,19 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 14:52:22 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/08 14:53:12 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/12 17:59:43 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
 int	ft_memcmp(const void *s, const void *s2, size_t n)
 {
-	char	*s3;
-	char	*s4;
+	unsigned char	*s3;
+	unsigned char	*s4;
 
-	s3 = (char *)s;
-	s4 = (char *)s2;
+	s3 = (unsigned char *)s;
+	s4 = (unsigned char *)s2;
 	while (*s3 && n)
 	{
 		if (*s3 - *s4 != 0)

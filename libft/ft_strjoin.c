@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 11:05:21 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/12 11:35:15 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/12 17:49:11 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ Fonctions externes autorisées
 malloc
 Description Alloue (avec malloc(3)) et retourne une nouvelle
 chaîne, résultat de la concaténation de s1 et s2.*/
-#include <stddef.h>
 #include "libft.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)

@@ -6,12 +6,13 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 14:57:57 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/08 15:22:02 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/12 18:27:48 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-
+#include "libft.h"
+/* [fail]: your strncmp does not cast in unsigned char the diff
+[fail]: your strncmp does not work with non ascii chars*/
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	while (*s1 && n)

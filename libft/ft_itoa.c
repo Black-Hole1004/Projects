@@ -6,12 +6,17 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 17:26:42 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/08 18:33:29 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/12 18:31:03 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
+#include "libft.h"
+/* ft_itoa:       [FAILED] [OK] [OK] [FAILED] [FAILED] [OK] [KO] [KO] [OK]
+[fail]: your itoa does not work with basic input
+[fail]: your itoa does not work with min int
+[fail]: your itoa don't set \0 at the end of the string
+[KO]: your itoa does not allocate the good size so the \0 test may be false
+[KO]: your itoa does not allocate the good size so the \0 test may be false*/
 int	nbr_len(int nbr)
 {
 	int	count;

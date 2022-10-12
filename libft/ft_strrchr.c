@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 14:25:11 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/12 11:51:55 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/12 18:27:31 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@
      tions locate the terminating `\0'.
 
      The strrchr() function is identical to strchr(), except it locates the
-     last occurrence of c.*/
+     last occurrence of c.
+	 [fail]: your strrchr does not work with basic input
+	 [fail]: your strrchr does not work with not found char
+	 */
 int	count_occurences(const char *s, int c)
 {
 	int	i;

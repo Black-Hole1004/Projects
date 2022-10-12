@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 10:37:49 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/10 17:02:27 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/12 18:30:09 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,13 @@
 // caractères issue de la chaîne ’s’.
 // Cette nouvelle chaîne commence à l’index ’start’ et
 // a pour taille maximale ’len’.
-#include <stddef.h>
 #include "libft.h"
-
+/* [crash]: your substr does not work with valid input
+[crash]: your substr does not work with valid input
+[fail]: your substr did not allocate the good size so the \0 test may be false
+[crash]: your substr does not set \0 to the end of the string
+[crash]: your substr does not work for a whole string
+[crash]: your substr does not work when start >= ft_strlen(s)*/
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*substr;

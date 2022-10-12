@@ -6,13 +6,11 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 14:38:36 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/12 09:39:32 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/12 18:28:51 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
-#include <stdio.h>
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
@@ -38,10 +36,9 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	return (res);
 }
 
-// int main(){
-//     char d[50] = "hello world !";
-//     char s[] = "this is 1337";
-//     //printf("%d\n",ft_strlcat(d,s,50));
-//      printf("%lu",strlcat(d,s,5));
-//     //printf("%s",memchr(s,22,7));
-// }
+// ft_strlcat:    [FAILED] [OK] [FAILED] [OK] [FAILED] 
+//[OK] [OK] [OK] [OK] [OK] [OK] [OK] [CRASH]
+// [fail]: your strlcat does not work with basic input
+// [fail]: your strlcat does not work with basic input
+// [fail]: your strlcat does not work with a size of 0
+// [crash]: your strlcat crush when null parameter is sent with a size of 0

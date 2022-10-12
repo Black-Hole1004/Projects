@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 11:40:29 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/12 14:16:32 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/12 18:31:31 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ chaîne de caractères passée en argument pour créer
 une nouvelle chaîne de caractères (avec malloc(3))
 résultant des applications successives de ’f’.*/
 
-#include <stddef.h>
 #include "libft.h"
-
+/* [fail]: your strmapi does not allocate the good size so the 
+\0 test may be false*/
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	char			*to_return;

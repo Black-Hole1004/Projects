@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 11:03:25 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/10 16:56:54 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/12 17:48:33 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,7 @@ write
 Description Écrit l’entier ’n’ sur le descripteur de fichier
 donné.*/
 
-#include <stddef.h>
 #include "libft.h"
-
-void	ft_putchar_fd(char c, int fd)
-{
-	write (fd, &c, 1);
-}
 
 void	ft_putnbr_fd(int nb, int fd)
 {

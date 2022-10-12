@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 12:21:30 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/12 15:32:36 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/12 18:30:23 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,15 @@ la chaîne ’s1’, sans les caractères spécifiés
 dans ’set’ au début et à la fin de la chaîne de  
 EX: s1 = "1337 hello world ! 1337"  set = "1337"
 caractères.*/
-
-#include <stddef.h>
 #include "libft.h"
-
+/* [crash]: your strtrim does not work with basic input
+[crash]: your strtrim does not work with basic input
+[crash]: your strtrim does not work with basic input
+[crash]: your strtrim does not work with full blank input
+[timeout]: see the log file for informations
+[crash]: your strtrim did not allocate the good size so the \0 test may be false
+[crash]: your strtrim does not allocate memory
+[crash]: your strtrim does not set \0 to the end of the string*/
 int	check_set(const char *s, const char *set)
 {
 	int	j;

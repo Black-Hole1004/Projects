@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 11:23:07 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/09 11:38:19 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/12 18:33:27 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,9 @@ Description Applique la fonction ’f’ à chaque caractère de la
 chaîne de caractères transmise comme argument,
 et en passant son index comme premier argument.
 Chaque caractère est transmis par adresse à ’f’
-afin d’être modifié si nécessaire.*/
-#include <stddef.h>
+afin d’être modifié si nécessaire.
+[fail]: your striteri does no work
+*/
 #include "libft.h"
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
