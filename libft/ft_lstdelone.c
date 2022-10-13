@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 12:12:35 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/12 18:36:24 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/13 16:31:03 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,9 @@ utilisant la fonction ’del’ puis avec free(3). La
 mémoire de ’next’ ne doit pas être free.*/
 void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	if (lst)
+	if (lst && del)
+	{
 		del(lst->content);
-	free(lst);
+		free(lst);
+	}
 }

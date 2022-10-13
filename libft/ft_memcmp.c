@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 14:52:22 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/12 17:59:43 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/13 16:43:41 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,13 @@ int	ft_memcmp(const void *s, const void *s2, size_t n)
 
 	s3 = (unsigned char *)s;
 	s4 = (unsigned char *)s2;
-	while (*s3 && n)
+	while (n--)
 	{
 		if (*s3 - *s4 != 0)
 			return (*s3 - *s4);
 		s3++;
 		s4++;
-		n--;
 	}
-	if (*s3 == '\0')
-		return (-(*s4));
 	return (0);
 }
 

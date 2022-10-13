@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 12:21:30 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/12 18:30:23 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/13 17:10:59 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char			*to_return;
 	unsigned int	i;
 
+	if (!s1)
+		return (NULL);
 	len_set = ft_strlen(set);
 	to_return = (char *)malloc(ft_strlen(s1) * sizeof(char));
 	if (!to_return)

@@ -4,6 +4,8 @@
 
 # to finish and test functions :
 //1. ft_split
-2. ft_striteri
-3. ft_strmapi
-4. ft_lstmap
+//2. ft_striteri
+//3. ft_strmapi
+//4. ft_lstmap
+5. ft_strtrim
+6. ft_substr

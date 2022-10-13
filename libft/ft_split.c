@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 10:30:40 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/12 18:45:35 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/13 16:50:09 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,8 @@ char	**ft_split(const char *str, char c)
 	int		i;
 
 	i = 0;
+	if (!str)
+		return (NULL);
 	strings = (char **)malloc(sizeof(char *)
 			* (count_words(str, c) + 1));
 	if (!strings)

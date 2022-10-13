@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 11:23:07 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/12 18:33:27 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/13 17:04:22 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,15 @@ afin d’être modifié si nécessaire.
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
+	unsigned int	i;
+
+	if (!s)
+		return ;
+	i = 0;
 	while (*s)
 	{
-		f(*s, s);
+		f(i, s);
 		s++;
+		i++;
 	}
 }

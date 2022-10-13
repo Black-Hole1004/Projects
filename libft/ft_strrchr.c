@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 14:25:11 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/12 18:27:31 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/13 10:33:18 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,24 +37,22 @@ int	count_occurences(const char *s, int c)
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int	count;
+	int	occurence;
 
-	count = 0;
+	occurence = count_occurences(s, c);
 	if (c == '\0')
 	{
 		while (*s)
 			s++;
 		return ((char *)s);
 	}
-	if (count_occurences(s, c) > 0)
+	while (*s && occurence)
 	{
-		while (*s)
-		{
-			if (*s == c && count <= (count_occurences(s, c) - 1))
-				return ((char *)s);
-			s++;
-			count++;
-		}
+		if (*s == c && occurence == 1)
+			return ((char *)s);
+		if (*s == c)
+			occurence--;
+	s++;
 	}
 	return (NULL);
 }
