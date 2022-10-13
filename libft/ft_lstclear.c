@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 13:06:07 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/13 17:10:09 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/13 18:08:31 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	t_list	*temp;
 
 	temp = *lst;
-	if (temp)
+	if (temp && del)
 	{
 		while (temp)
 		{

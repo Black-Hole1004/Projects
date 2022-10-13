@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 14:38:36 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/13 16:50:28 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/13 19:21:58 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,20 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	int		res;
 	size_t	ls;
 	size_t	ld;
+	size_t	i;
 
+	if ((!src || !dst) && !dstsize)
+		return (0);
 	ls = ft_strlen(src);
 	ld = ft_strlen(dst);
-	if (!dstsize)
-		return (0);
+	i = -1;
 	while (*dst)
 		dst++;
 	if (dstsize > ld)
 		res = ls + ld;
 	else
 		res = ls + dstsize;
-	while (*src)
+	while (*src && i++ < dstsize - ld - 1)
 	{
 		*dst = *src;
 		dst++;
