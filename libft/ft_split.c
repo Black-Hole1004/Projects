@@ -28,9 +28,6 @@ Le tableau doit être terminé par NULL.*/
 /* [crash]: you did not protect your split*/
 int	is_charset(char c, char charset)
 {
-	int	i;
-
-	i = 0;
 	if (c == charset)
 		return (1);
 	return (0);
