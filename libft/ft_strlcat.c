@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 14:38:36 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/17 13:42:52 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/17 14:41:33 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,3 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	dst[ld + i] = '\0';
 	return (ls + ld);
 }
-
-// ft_strlcat:    [FAILED] [OK] [FAILED] [OK] [FAILED] 
-//[OK] [OK] [OK] [OK] [OK] [OK] [OK] [CRASH]
-// [fail]: your strlcat does not work with basic input
-// [fail]: your strlcat does not work with basic input
-// [fail]: your strlcat does not work with a size of 0
-// [crash]: your strlcat crush when null parameter is sent with a size of 0
