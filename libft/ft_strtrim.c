@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 12:21:30 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/17 14:44:25 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/17 14:45:43 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,11 +79,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 	ft_strlcpy(to_return, s1, len_s1);
 	return (to_return);
 }
-// int main()
-// {
-// 	const char s[30] = "1337 hello world this is 1337";
-// 	const char set[6] = "1337";
-// 	printf("%d\n",found_set_last(s,set));
-// 	printf("%s",ft_strtrim(s, set));
-// 	return (0);
-// }
