@@ -45,11 +45,16 @@ int	check_set(const char *s, const char *set)
 	return (0);
 }
 
-int	found_set_first(const char *s, const char *set)
+char*	trim_first(const char *s, const char *set)
 {
-	if (check_set(s, set))
-		return (1);
-	return (0);
+	int	i = 0;
+	while (*s && *s == set[i])
+	{
+		s++;
+		i++;
+	}
+		
+	return ((char *)s);
 }
 
 int	found_set_last(const char *s, const char *set)
@@ -61,9 +66,12 @@ int	found_set_last(const char *s, const char *set)
 	len_set = ft_strlen(set);
 	len_s = ft_strlen(s);
 	i = 0;
-	while (i++ < (len_s - len_set))
-		s++;
-	if (check_set(s, set))
+	while (s[len_s] == set[len_set] && len_set && len_s)
+	{
+		len_s--;
+		len_set--;
+	}
+	if (!len_set)
 		return (1);
 	return (0);
 }
@@ -76,24 +84,28 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 	if (!s1)
 		return (NULL);
+	s1 = trim_first(s1, set);
 	len_set = ft_strlen(set);
-	to_return = (char *)malloc(ft_strlen(s1) * sizeof(char));
+	to_return = (char *)malloc((ft_strlen(s1) + 1) * sizeof(char));
 	if (!to_return)
 		return (NULL);
-	i = -1;
-	if (found_set_first(s1, set))
-	{
-		while (len_set)
-		{
-			s1++;
-			len_set--;
-		}
-	}
+	i = 0;
 	if (found_set_last(s1, set))
 	{
-		while (i++ < (unsigned int )(ft_strlen(s1) - ft_strlen(set)))
+		while (i < (ft_strlen(s1) - len_set) -1);
+		{
 			to_return[i] = s1[i];
+			i++;
+		}
 	}
 	to_return[i] = '\0';
 	return (to_return);
+}
+int main()
+{
+	const char s[30] = "1337 hello world this is 1337";
+	const char set[6] = "1337";
+	printf("%d\n",found_set_last(s,set));
+	printf("%s",ft_strtrim(s, set));
+	return (0);
 }
