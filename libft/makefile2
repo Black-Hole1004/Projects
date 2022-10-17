@@ -1,25 +1,25 @@
-NAME = libft.a
+# NAME = libft.a
 
-CC = gcc
+# CC = gcc
 
-FLAGS = -Wall -Werror -Wextra
+# FLAGS = -Wall -Werror -Wextra
 
-SRCM = ft_*.c
+# SRCM = ft_*.c
 
-SRCBONUS = ft_lst*.c
-all : 
-	$(CC)   $(SRCM) -c
-	echo "hello"
+# SRCBONUS = ft_lst*.c
+# all : 
+# 	$(CC)   $(SRCM) -c
+# 	echo "hello"
 
-BONUS:
-	$(CC) $(FLAGS) $(SRCBONUS)
-clean:
-	rm -f *.o
-fclean:
-	clean
-	rm -rf $(NAME)
-re:
-	fclean all
+# BONUS:
+# 	$(CC) $(FLAGS) $(SRCBONUS)
+# clean:
+# 	rm -f *.o
+# fclean:
+# 	clean
+# 	rm -rf $(NAME)
+# re:
+# 	fclean all
 
 #!/bin/sh
 

@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 17:26:42 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/17 12:04:02 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/17 18:12:52 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,14 +76,14 @@
 // 	return ((const char *)min_int);
 // }
 
-static int	ft_get_len(int nbr)
+static int	ft_get_len(long nbr)
 {
 	int		b;
 
-	if (nbr == -2147483648)
-		return (b = 14);
 	b = 0;
-	if (nbr < 0)
+	if (!nbr)
+		b = 1;
+	else if (nbr < 0)
 	{
 		nbr *= (-1);
 		b++;
@@ -96,18 +96,8 @@ static int	ft_get_len(int nbr)
 	return (b);
 }
 
-char	*ft_itoa(int nbr)
+char	*ft_convert(long nbr, char *s, int lennbr)
 {
-	int		lennbr;
-	char	*s;
-
-	lennbr = ft_get_len(nbr) - 1;
-	s = (char *)malloc((lennbr + 1) * sizeof(char));
-	if (!s)
-		return (NULL);
-	s[lennbr + 1] = '\0';
-	if (nbr == -2147483648)
-		return ("-2147483648");
 	if (nbr < 0)
 	{
 		nbr *= (-1);
@@ -121,5 +111,21 @@ char	*ft_itoa(int nbr)
 		nbr = nbr / 10;
 		lennbr--;
 	}
+	return (s);
+}
+
+char	*ft_itoa(int n)
+{
+	int		lennbr;
+	long	nbr;
+	char	*s;
+
+	nbr = n;
+	lennbr = ft_get_len(nbr) - 1;
+	s = (char *)malloc((lennbr + 2) * sizeof(char));
+	if (!s)
+		return (NULL);
+	s[lennbr + 1] = '\0';
+	s = ft_convert(nbr, s, lennbr);
 	return (s);
 }

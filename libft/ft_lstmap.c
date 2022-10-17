@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 13:17:34 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/12 18:32:57 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/17 16:45:10 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ contenu d’un élément si nécessaire.
 
 [crash]: your lstmap does not work with basic input
 */
-
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*to_return;
@@ -45,8 +44,30 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	{
 		ft_lstadd_back(&to_return, f(temp));
 		del(temp->content);
-		free(temp);
 		temp = temp->next;
+		free(temp);
 	}
 	return (to_return);
 }
+
+// void	*f(void	*str)
+// {
+// 	const char *str1;
+
+// 	int i = 0;
+// 	str1 = (const char *) str;
+// 	while (str1[i++])
+// 	{
+// 		ft_toupper(str1[i]);
+// 	}
+// 	return ((void *)str1);
+// }
+
+// int main()
+// {
+// 	t_list	*elem;
+// 	char	content[] = "hello world !";
+
+// 	elem = ft_lstnew(content);
+// 	printf("%s\n", ft_lstmap(elem, f, free)->content);
+// }

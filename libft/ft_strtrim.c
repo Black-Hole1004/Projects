@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 12:21:30 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/17 14:45:43 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/17 17:07:41 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (NULL);
 	s1 = trim_first(s1, set);
 	len_s1 = trim_last(s1, set, ft_strlen(s1));
-	to_return = (char *)malloc((len_s1 + 1) * sizeof(char));
+	to_return = (char *)malloc((len_s1) * sizeof(char));
 	if (!to_return)
 		return (NULL);
 	ft_strlcpy(to_return, s1, len_s1);
