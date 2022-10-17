@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 17:26:42 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/13 18:55:03 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/17 12:04:02 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,21 +65,23 @@
 // 	to_string[temp + 1] = '\0';
 // 	return (to_string);
 // }
-const char	*is_min(void)
+// static const char	*is_min(void)
+// {
+// 	const char	*min_int;
+
+// 	min_int = malloc(13 * sizeof(const char));
+// 	if (!min_int)
+// 		return (NULL);
+// 	min_int = "-2147483648";
+// 	return ((const char *)min_int);
+// }
+
+static int	ft_get_len(int nbr)
 {
-	const char	*min_int;
+	int		b;
 
-	min_int = malloc(13 * sizeof(const char));
-	if (!min_int)
-		return (NULL);
-	min_int = "-2147483648";
-	return ((const char *)min_int);
-}
-
-int	ft_get_len(int nbr)
-{
-	int	b;
-
+	if (nbr == -2147483648)
+		return (b = 14);
 	b = 0;
 	if (nbr < 0)
 	{
@@ -94,23 +96,6 @@ int	ft_get_len(int nbr)
 	return (b);
 }
 
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
-
-void	ft_putstr(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		ft_putchar(str[i]);
-		i++;
-	}
-}
-
 char	*ft_itoa(int nbr)
 {
 	int		lennbr;
@@ -120,6 +105,7 @@ char	*ft_itoa(int nbr)
 	s = (char *)malloc((lennbr + 1) * sizeof(char));
 	if (!s)
 		return (NULL);
+	s[lennbr + 1] = '\0';
 	if (nbr == -2147483648)
 		return ("-2147483648");
 	if (nbr < 0)

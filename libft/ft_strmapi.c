@@ -35,7 +35,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	int				i;
 
 	i = 0;
-	if (!s)
+	if (!s || !f)
 		return (NULL);
 	to_return = (char *)malloc((ft_strlen(s) + 1) * sizeof(char));
 	if (!to_return)

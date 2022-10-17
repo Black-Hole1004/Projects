@@ -24,11 +24,18 @@ $(NAME) : $(OBJECT) libft.h
 	ar rc $(NAME) $(OBJECT)
 
 %.o: %.c libft.h
-		cc $(CFLAGS) -c $< -o $@
+	cc $(CFLAGS) -c $< -o $@
+
+so:
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC)
+	gcc -nostartfiles -shared -o libft.so $(OBJECT)
 
 bonus : $(OBJECT) $(BONUS_OBJECT)
 	ar rc $(NAME) $(OBJECT) $(BONUS_OBJECT)
 
+so_bonus:
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(BONUS_SRC)
+	gcc -nostartfiles -shared -o libft.so $(BONUS_OBJECT)
 clean :
 	rm -f $(OBJECT) $(BONUS_OBJECT)
 

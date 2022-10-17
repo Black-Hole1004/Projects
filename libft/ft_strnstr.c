@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 14:36:23 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/13 19:14:15 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/17 09:51:14 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,26 +18,23 @@
 [crash]: your strnstr crush when null parameter is sent with a size of 0 */
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	int	i;
-	int	j;
-	int	temp;
+	size_t	i;
+	size_t	j;
+	char	*to_return;
 
-	if ((!haystack || !needle) && !len)
-		return (NULL);
+	to_return = (char *)haystack;
+	if ((haystack == needle) || !len)
+		return (to_return);
 	i = 0;
 	if (needle[0] == '\0')
-		return ((char *)haystack);
-	while (haystack[i])
+		return (to_return);
+	while (haystack[i] && i < len)
 	{
 		j = 0;
-		temp = len;
-		while (haystack[i + j] && haystack[i + j] == needle[j] && len)
-		{
-			if (needle[j] == '\0')
-				return ((char *)(haystack + i));
+		while (haystack[i + j] && haystack[i + j] == needle[j] && i + j < len)
 			j++;
-			temp--;
-		}
+		if (needle[j] == '\0')
+			return (to_return + i);
 		++i;
 	}
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 14:25:11 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/13 10:33:18 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/17 09:52:37 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 	 [fail]: your strrchr does not work with basic input
 	 [fail]: your strrchr does not work with not found char
 	 */
-int	count_occurences(const char *s, int c)
+static int	count_occurences(const char *s, int c)
 {
 	int	i;
 

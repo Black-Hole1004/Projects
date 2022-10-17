@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 10:30:40 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/13 16:50:09 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/17 13:51:52 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,14 @@ l’aide du caractère ’c’, utilisé comme délimiteur.
 Le tableau doit être terminé par NULL.*/
 #include "libft.h"
 /* [crash]: you did not protect your split*/
-int	is_charset(char c, char charset)
+static int	is_charset(char c, char charset)
 {
-	int	i;
-
-	i = 0;
 	if (c == charset)
 		return (1);
 	return (0);
 }
 
-int	count_words(const char *str, char charset)
+static int	count_words(const char *str, char charset)
 {
 	int	i;
 	int	count;
@@ -55,17 +52,17 @@ int	count_words(const char *str, char charset)
 	return (count);
 }
 
-int	word_length(const char *str, char charset)
+static int	word_length(const char *str, char charset)
 {
 	int	i;
 
 	i = 0;
-	while (str[i] && !is_charset(str[i], charset))
+	while (str[i] && !is_charset(str[i], charset)) //  ! 1337 !  " "
 		i++;
 	return (i);
 }
 
-char	*ready_word(const char *str, char charset)
+static char	*ready_word(const char *str, char charset)
 {
 	int		length_of_word;
 	int		i;

@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 12:21:30 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/13 17:10:59 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/17 14:30:13 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,67 +33,49 @@ caractères.*/
 [crash]: your strtrim did not allocate the good size so the \0 test may be false
 [crash]: your strtrim does not allocate memory
 [crash]: your strtrim does not set \0 to the end of the string*/
-int	check_set(const char *s, const char *set)
+static int	is_set(const char *set, const char c)
 {
-	int	j;
+	int	i;
 
-	j = 0;
-	while (s[j] && s[j] == set[j])
-		j++;
-	if (!set[j])
-		return (1);
-	return (0);
-}
-
-int	found_set_first(const char *s, const char *set)
-{
-	if (check_set(s, set))
-		return (1);
-	return (0);
-}
-
-int	found_set_last(const char *s, const char *set)
-{
-	unsigned int	len_set;
-	unsigned int	len_s;
-	unsigned int	i;
-
-	len_set = ft_strlen(set);
-	len_s = ft_strlen(s);
 	i = 0;
-	while (i++ < (len_s - len_set))
-		s++;
-	if (check_set(s, set))
-		return (1);
+	while (set[i])
+	{
+		if (set[i] == c)
+			return (1);
+	i++;
+	}
 	return (0);
+}
+
+static char	*trim_first(const char *s, const char *set)
+{
+	while (*s && is_set(set, *s))
+		s++;
+	return ((char *)s);
+}
+
+static size_t	trim_last(const char *s, const char *set, size_t len_s1)
+{
+	char	*temp;
+
+	temp = (char *)s;
+	while (is_set(set, temp[len_s1 - 1]) && len_s1)
+		len_s1--;
+	return (len_s1 + 1);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	unsigned int	len_set;
+	unsigned int	len_s1;
 	char			*to_return;
-	unsigned int	i;
 
 	if (!s1)
 		return (NULL);
-	len_set = ft_strlen(set);
-	to_return = (char *)malloc(ft_strlen(s1) * sizeof(char));
+	s1 = trim_first(s1, set);
+	len_s1 = trim_last(s1, set, ft_strlen(s1));
+	to_return = (char *)malloc((len_s1 + 1) * sizeof(char));
 	if (!to_return)
 		return (NULL);
-	i = -1;
-	if (found_set_first(s1, set))
-	{
-		while (len_set)
-		{
-			s1++;
-			len_set--;
-		}
-	}
-	if (found_set_last(s1, set))
-	{
-		while (i++ < (unsigned int )(ft_strlen(s1) - ft_strlen(set)))
-			to_return[i] = s1[i];
-	}
-	to_return[i] = '\0';
+	ft_strlcpy(to_return, s1, len_s1);
 	return (to_return);
 }
