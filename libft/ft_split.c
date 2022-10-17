@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 10:30:40 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/17 13:51:52 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/17 14:34:12 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static int	word_length(const char *str, char charset)
 	int	i;
 
 	i = 0;
-	while (str[i] && !is_charset(str[i], charset)) //  ! 1337 !  " "
+	while (str[i] && !is_charset(str[i], charset))
 		i++;
 	return (i);
 }

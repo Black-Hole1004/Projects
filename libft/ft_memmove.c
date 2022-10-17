@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 14:51:05 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/13 15:01:09 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/17 14:31:47 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	s = (char *)src;
 	if (s < d)
 	{
-	while (len)
-	{
-		d[len - 1] = s[len - 1];
-		len--;
-	}
+		while (len)
+		{
+			d[len - 1] = s[len - 1];
+			len--;
+		}
 	}
 	else
-		ft_memcpy(d,s,len);
+		ft_memcpy(d, s, len);
 	return (dst);
 }
 
