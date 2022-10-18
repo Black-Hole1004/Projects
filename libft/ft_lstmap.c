@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 13:17:34 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/18 09:12:12 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/18 15:34:24 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,22 +34,26 @@ contenu d’un élément si nécessaire.
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*to_return;
-	t_list	*temp;
-	t_list	*x;
+	t_list	*new;
 
-	temp = lst;
-	x = NULL;
-	to_return = (t_list *)malloc(ft_lstsize(lst) * sizeof (t_list));
-	if (!to_return)
-		return (NULL);
-	while (temp)
+	to_return = NULL;
+	while (lst)
 	{
-		x = ft_lstnew(f(temp));
-		ft_lstadd_back(&to_return, x);
-		del(temp->content);
-		//temp = temp->next;
-		free(temp);
-		temp = lst->next;
+		new = ft_lstnew(f(lst->content));
+		if (!new)
+		{
+			while (to_return)
+			{
+				new = to_return->next;
+				(*del)(to_return->content);
+				free(to_return);
+				to_return = new;
+			}
+			lst = NULL;
+			return (NULL);
+		}
+		ft_lstadd_back(&to_return, new);
+		lst = lst->next;
 	}
 	return (to_return);
 }

@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 14:48:32 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/13 11:55:17 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/18 13:46:57 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ void	*ft_memset(void *b, int c, size_t len)
 //     char *s1 = s;
 
 //     //memset(s,97,5);
-//     ft_memset(s,55,5);
+//     ft_memset(s,-126,5);
 //     printf("%s ",s);
 // }

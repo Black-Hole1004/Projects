@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 13:06:07 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/17 18:18:36 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/18 14:57:44 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,11 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 
 	if (!lst || !del)
 		return ;
-	temp = *lst;
-	while (temp)
+	while (*lst && lst)
 	{
-		temp = temp->next;
-		ft_lstdelone(temp, del);
-		free(temp);
+		temp = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		(*lst) = temp;
 	}
+	lst = NULL;
 }
