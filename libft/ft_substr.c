@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 10:37:49 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/17 10:43:59 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/18 18:48:11 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,24 +37,17 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	int		i;
 
 	i = 0;
-	if (!s)
+	if (!s || (ft_strlen(s) - start) < 0)
 		return (NULL);
+	len = ft_strlen(s) - start;
 	substr = (char *)malloc((len + 1) * sizeof(char));
 	if (!substr)
 		return (NULL);
-	if (!start)
+	while (s[start] && len)
 	{
-		ft_memcpy(substr, s, ft_strlen(s));
-		return (substr);
-	}
-	if (start <= ft_strlen(s))
-	{
-		while (s[start] && len)
-		{
-			substr[i++] = s[start];
-			start++;
-			len--;
-		}
+		substr[i++] = s[start];
+		start++;
+		len--;
 	}
 	substr[i] = '\0';
 	return (substr);
