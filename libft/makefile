@@ -26,9 +26,9 @@ $(NAME) : $(OBJECT) libft.h
 %.o: %.c libft.h
 	cc $(CFLAGS) -c $< -o $@
 
-so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC)
-	cc -nostartfiles -shared -o libft.so $(OBJECT)
+ #so: #for linux os
+# 	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC)
+# 	cc -nostartfiles -shared -o libft.so $(OBJECT)
 
 bonus : $(OBJECT) $(BONUS_OBJECT)
 	ar rc $(NAME) $(OBJECT) $(BONUS_OBJECT)

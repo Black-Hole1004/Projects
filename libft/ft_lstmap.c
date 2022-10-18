@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 13:17:34 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/17 16:45:10 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/18 09:12:12 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,21 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*to_return;
 	t_list	*temp;
+	t_list	*x;
 
 	temp = lst;
+	x = NULL;
 	to_return = (t_list *)malloc(ft_lstsize(lst) * sizeof (t_list));
 	if (!to_return)
 		return (NULL);
 	while (temp)
 	{
-		ft_lstadd_back(&to_return, f(temp));
+		x = ft_lstnew(f(temp));
+		ft_lstadd_back(&to_return, x);
 		del(temp->content);
-		temp = temp->next;
+		//temp = temp->next;
 		free(temp);
+		temp = lst->next;
 	}
 	return (to_return);
 }

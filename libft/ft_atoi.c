@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 14:32:05 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/12 20:56:07 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/18 10:27:06 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@
 [fail]: your atoi does not work with int min value
 [KO]: your atoi does not work with long max value
 [KO]: your atoi does not work with over long max value
-[KO]: your atoi does not work with the plus sign*/
+[KO]: your atoi does not work with the plus sign
+ max unsigned long long 2^64 - 1*/
 int	is_whitespace(char c)
 {
 	if (c == '\t' || c == '\n' || c == '\v' || c == '\f'
@@ -32,8 +33,8 @@ int	is_whitespace(char c)
 
 int	ft_atoi(const char *str)
 {
-	int	result;
-	int	sign;
+	unsigned long	result;
+	int				sign;
 
 	result = 0;
 	sign = 1;
@@ -48,6 +49,10 @@ int	ft_atoi(const char *str)
 	while (*str && ft_isdigit((*str)))
 	{
 		result *= 10;
+		if (result > 9223372036854775807UL && sign == 1)
+			return (-1);
+		else if (result > 9223372036854775808UL && sign == (-1))
+			return (0);
 		result += *str - '0';
 		str++;
 	}

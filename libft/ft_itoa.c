@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 17:26:42 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/17 18:12:52 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/18 08:52:51 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,6 +121,10 @@ char	*ft_itoa(int n)
 	char	*s;
 
 	nbr = n;
+	if (nbr > 9223372036854775807)
+		return ("-1");
+	else if (nbr < -9223372036854775807)
+		return ("0");
 	lennbr = ft_get_len(nbr) - 1;
 	s = (char *)malloc((lennbr + 2) * sizeof(char));
 	if (!s)
