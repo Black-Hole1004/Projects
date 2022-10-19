@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 14:36:23 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/17 14:42:38 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/19 13:48:20 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	char	*to_return;
 
 	to_return = (char *)haystack;
-	if ((haystack == needle) || !len)
+	if ((haystack == needle) || len < 0)
 		return (to_return);
 	i = 0;
 	if (needle[0] == '\0')

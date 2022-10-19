@@ -6,12 +6,13 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 14:58:35 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/18 19:37:36 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/19 13:38:17 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+# define SIZE_MAX UINTPTR_MAX
 
 # include <string.h>
 # include <stdlib.h>

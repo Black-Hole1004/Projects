@@ -6,26 +6,29 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 14:53:25 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/18 16:16:29 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/19 12:33:27 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/* char s[] = {0, 1, 2 ,3 ,4 ,5};
+ check(ft_memchr(s, 0, 0) == NULL); showLeaks();
+ check(ft_memchr(s, 0, 1) == s); showLeaks();
+ check(ft_memchr(s, 2, 3) == s + 2); showLeaks();
+ check(ft_memchr(s, 6, 6) == NULL); showLeaks();
+ check(ft_memchr(s, 2 + 256, 3) == s + 2); showLeaks();*/
 void	*ft_memchr(const void *s, int c, size_t n)
 {
 	unsigned char	*buff;
 
 	buff = (unsigned char *)s;
-	if (c == '\0')
-		return (buff + ft_strlen(s));
-	while (*buff && *buff != c && n)
+	while (n)
 	{
+		if ((unsigned char) c == *buff)
+			return (buff);
 		buff++;
 		n--;
 	}
-	if (*buff == '\0' || n == 0)
-		return (NULL);
-	else
-		return (buff);
+	return (NULL);
 }

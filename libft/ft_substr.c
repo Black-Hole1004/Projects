@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 10:37:49 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/18 18:48:11 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/19 14:39:32 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,23 +31,33 @@
 [crash]: your substr does not set \0 to the end of the string
 [crash]: your substr does not work for a whole string
 [crash]: your substr does not work when start >= ft_strlen(s)*/
+/* s = ft_substr(str, 42, 42000000);
+	 6 check(!strcmp(s, ""));
+	 7 mcheck(s, 1); free(s); free(str) 
+	 s = ft_substr("tripouille", 1, 1);
+	 3  check(!strcmp(s, "r"));
+	 4  mcheck(s, 2); free(s); */
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*substr;
 	int		i;
+	int		alloc;
 
 	i = 0;
-	if (!s || (ft_strlen(s) - start) < 0)
-		return (NULL);
-	len = ft_strlen(s) - start;
-	substr = (char *)malloc((len + 1) * sizeof(char));
+	if (len > ft_strlen(s) - start)
+		alloc = ft_strlen(s) - start;
+	else if (start > ft_strlen(s))
+		alloc = 0;
+	else
+		alloc = len;
+	substr = (char *)malloc((alloc + 1) * sizeof(char));
 	if (!substr)
 		return (NULL);
-	while (s[start] && len)
+	while (alloc)
 	{
 		substr[i++] = s[start];
 		start++;
-		len--;
+		alloc--;
 	}
 	substr[i] = '\0';
 	return (substr);

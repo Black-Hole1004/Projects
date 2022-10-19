@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 14:25:11 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/17 09:52:37 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/19 13:33:20 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 	 [fail]: your strrchr does not work with basic input
 	 [fail]: your strrchr does not work with not found char
 	 */
-static int	count_occurences(const char *s, int c)
+static int	count_occurences(const char *s, char c)
 {
 	int	i;
 
@@ -37,10 +37,12 @@ static int	count_occurences(const char *s, int c)
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int	occurence;
+	int				occurence;
+	unsigned char	c1;
 
-	occurence = count_occurences(s, c);
-	if (c == '\0')
+	c1 = c;
+	occurence = count_occurences(s, c1);
+	if (c1 == '\0')
 	{
 		while (*s)
 			s++;
@@ -48,9 +50,9 @@ char	*ft_strrchr(const char *s, int c)
 	}
 	while (*s && occurence)
 	{
-		if (*s == c && occurence == 1)
+		if (*s == c1 && occurence == 1)
 			return ((char *)s);
-		if (*s == c)
+		if (*s == c1)
 			occurence--;
 	s++;
 	}
