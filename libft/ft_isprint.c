@@ -6,11 +6,11 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 10:14:02 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/12 18:22:52 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/21 15:42:22 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
 int	ft_isprint(int c)
 {

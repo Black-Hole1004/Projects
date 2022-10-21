@@ -6,10 +6,11 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 12:21:30 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/17 17:07:41 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/21 15:39:19 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 /* Function name ft_strtrim
 Prototype char *ft_strtrim(char const *s1, char const *set);
 Fichiers de rendu -
@@ -24,7 +25,7 @@ la chaîne ’s1’, sans les caractères spécifiés
 dans ’set’ au début et à la fin de la chaîne de  
 EX: s1 = "1337 hello world ! 1337"  set = "1337"
 caractères.*/
-#include "libft.h"
+
 /* [crash]: your strtrim does not work with basic input
 [crash]: your strtrim does not work with basic input
 [crash]: your strtrim does not work with basic input

@@ -6,10 +6,11 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 11:03:25 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/12 17:48:33 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/21 15:40:34 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 /* Function name ft_putnbr_fd
 Prototype void ft_putnbr_fd(int n, int fd);
 Fichiers de rendu -
@@ -20,8 +21,6 @@ Fonctions externes autorisées
 write
 Description Écrit l’entier ’n’ sur le descripteur de fichier
 donné.*/
-
-#include "libft.h"
 
 void	ft_putnbr_fd(int nb, int fd)
 {

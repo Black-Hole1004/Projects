@@ -6,10 +6,11 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 12:03:35 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/21 12:11:03 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/21 15:40:24 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 /*Function name ft_putstr_fd
 Prototype void ft_putstr_fd(char *s, int fd);
 Fichiers de rendu -
@@ -20,8 +21,6 @@ Fonctions externes autorisées
 write
 Description Écrit la chaîne de caractères ’s’ sur le
 descripteur de fichier donné.*/
-
-#include "libft.h"
 
 void	ft_putstr_fd(char *s, int fd)
 {

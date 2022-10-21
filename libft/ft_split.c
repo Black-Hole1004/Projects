@@ -6,10 +6,11 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 10:30:40 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/17 14:34:12 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/21 15:40:11 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 /* Function name ft_split
 Prototype char **ft_split(char const *s, char c);
 Fichiers de rendu -
@@ -24,7 +25,7 @@ Description Alloue (avec malloc(3)) et retourne un tableau
 de chaînes de caractères obtenu en séparant ’s’ à
 l’aide du caractère ’c’, utilisé comme délimiteur.
 Le tableau doit être terminé par NULL.*/
-#include "libft.h"
+
 /* [crash]: you did not protect your split*/
 static int	is_charset(char c, char charset)
 {

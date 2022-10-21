@@ -6,10 +6,11 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 10:37:49 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/19 14:39:32 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/21 15:38:55 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 // Prototype char *ft_substr(char const *s, unsigned int start,size_t len);
 // Fichiers de rendu -
 // Paramètres s: La chaîne de laquelle extraire la nouvelle
@@ -24,7 +25,6 @@
 // caractères issue de la chaîne ’s’.
 // Cette nouvelle chaîne commence à l’index ’start’ et
 // a pour taille maximale ’len’.
-#include "libft.h"
 /* [crash]: your substr does not work with valid input
 [crash]: your substr does not work with valid input
 [fail]: your substr did not allocate the good size so the \0 test may be false

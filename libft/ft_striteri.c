@@ -6,10 +6,11 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 11:23:07 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/19 12:12:26 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/21 15:40:02 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 /* Function name ft_striteri
 Prototype void ft_striteri(char *s, void (*f)(unsigned int,
 char*));
@@ -26,7 +27,6 @@ Chaque caractère est transmis par adresse à ’f’
 afin d’être modifié si nécessaire.
 [fail]: your striteri does no work
 */
-#include "libft.h"
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
