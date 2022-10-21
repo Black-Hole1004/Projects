@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 14:53:25 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/19 12:33:27 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/21 12:10:02 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,11 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	unsigned char	*buff;
 
 	buff = (unsigned char *)s;
-	while (n)
+	while (n--)
 	{
 		if ((unsigned char) c == *buff)
 			return (buff);
 		buff++;
-		n--;
 	}
 	return (NULL);
 }
