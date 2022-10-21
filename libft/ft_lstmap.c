@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 13:17:34 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/18 15:34:24 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/21 11:39:37 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		new = ft_lstnew(f(lst->content));
 		if (!new)
 		{
-			while (to_return)
-			{
-				new = to_return->next;
-				(*del)(to_return->content);
-				free(to_return);
-				to_return = new;
-			}
+			ft_lstclear(&to_return, del);
 			lst = NULL;
 			return (NULL);
 		}
