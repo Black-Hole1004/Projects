@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 14:51:05 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/21 12:09:33 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/21 12:12:02 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	if (s < d)
 	{
 		while (len--)
-			d[len - 1] = s[len - 1];
+			d[len] = s[len];
 	}
 	else
 		ft_memcpy(d, s, len);
