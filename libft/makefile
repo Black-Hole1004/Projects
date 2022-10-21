@@ -23,17 +23,17 @@ all : $(NAME)
 $(NAME) : $(OBJECT) libft.h
 	ar rc $(NAME) $(OBJECT)
 
-# %.o: %.c libft.h
-# 	$(CC) $(CFLAGS) -c $< -o $@
+%.o: %.c libft.h
+	$(CC) $(CFLAGS) -c $< -o $@
 
 #  so: #for linux os
 # 	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC)
-# 	$(CC) -nostartfiles -shared -o libft.so $(OBJECT)
+# 	$(CC) -nostartfiles -shared -o libft.so $(OBJECT) #creating shared library .so
 
 bonus : $(OBJECT) $(BONUS_OBJECT)
 	ar rc $(NAME) $(OBJECT) $(BONUS_OBJECT)
 
-# so_bonus:
+# so_bonus: 
 # 	$(CC) -nostartfiles -fPIC $(CFLAGS) $(BONUS_SRC)
 # 	$(CC) -nostartfiles -shared -o libft.so $(BONUS_OBJECT)
 clean :
