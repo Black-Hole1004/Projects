@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 11:05:21 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/21 15:39:49 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/21 20:33:56 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,26 +25,25 @@ chaîne, résultat de la concaténation de s1 et s2.*/
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*to_return;
-	int		i;
+	char				*to_return;
+	unsigned int		i;
 
 	if (!s1 || !s2)
 		return (NULL);
 	i = 0;
-	to_return = (char *)malloc((ft_strlen(s1) + ft_strlen(s2)) * sizeof(char));
+	to_return = (char *)malloc((ft_strlen(s1) + ft_strlen(s2) + 1)
+			* sizeof(char));
 	if (!to_return)
 		return (NULL);
-	while (*s1)
+	while (i < ft_strlen(s1))
 	{
-		to_return[i] = *s1;
+		to_return[i] = s1[i];
 		i++;
-		s1++;
 	}
-	while (*s2)
+	while (i < ft_strlen(s2) + ft_strlen(s1))
 	{
-		to_return[i] = *s2;
+		to_return[i] = s2[i - ft_strlen(s1)];
 		i++;
-		s2++;
 	}
 	to_return[i] = '\0';
 	return (to_return);

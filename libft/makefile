@@ -37,10 +37,10 @@ bonus : $(OBJECT) $(BONUS_OBJECT)
 # 	$(CC) -nostartfiles -fPIC $(CFLAGS) $(BONUS_SRC)
 # 	$(CC) -nostartfiles -shared -o libft.so $(BONUS_OBJECT)
 clean :
-	rm -f $(OBJECT) $(BONUS_OBJECT)
+	@rm -f $(OBJECT) $(BONUS_OBJECT)
 
 fclean : clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re : fclean all
 
