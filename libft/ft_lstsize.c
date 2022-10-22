@@ -6,11 +6,11 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 11:53:55 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/10 12:03:31 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/22 11:48:50 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_bonus.h"
 /* Function name ft_lstsize
 Prototype int ft_lstsize(t_list *lst);
 Fichiers de rendu -

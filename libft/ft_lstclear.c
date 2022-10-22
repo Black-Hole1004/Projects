@@ -6,11 +6,11 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 13:06:07 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/18 19:36:25 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/22 11:48:21 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_bonus.h"
 
 /* Function name ft_lstclear
 Prototype void ft_lstclear(t_list **lst, void (*del)(void

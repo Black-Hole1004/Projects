@@ -6,11 +6,11 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 11:53:38 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/10 12:12:12 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/22 11:48:10 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_bonus.h"
 /* Function name ft_lstadd_back
 Prototype void ft_lstadd_back(t_list **lst, t_list *new);
 Fichiers de rendu -

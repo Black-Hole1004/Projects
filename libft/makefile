@@ -30,7 +30,7 @@ $(NAME) : $(OBJECT) libft.h
 # 	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC)
 # 	$(CC) -nostartfiles -shared -o libft.so $(OBJECT) #creating shared library .so
 
-bonus : $(OBJECT) $(BONUS_OBJECT)
+bonus : $(OBJECT) $(BONUS_OBJECT) libft_bonus.h
 	ar rc $(NAME) $(OBJECT) $(BONUS_OBJECT)
 
 # so_bonus: 

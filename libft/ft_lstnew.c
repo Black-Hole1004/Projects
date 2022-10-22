@@ -6,11 +6,11 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 11:35:31 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/12 18:32:01 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/22 11:48:46 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_bonus.h"
 /* Function name ft_lstnew
 Prototype t_list *ft_lstnew(void *content);
 Fichiers de rendu -
