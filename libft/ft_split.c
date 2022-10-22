@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 10:30:40 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/22 18:23:54 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/22 18:30:26 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ l’aide du caractère ’c’, utilisé comme délimiteur.
 Le tableau doit être terminé par NULL.*/
 
 /* [crash]: you did not protect your split*/
-static void	free_zmr(char **str)
+char	**free_zmr(char **str)
 {
 	int	i;
 
@@ -37,6 +37,8 @@ static void	free_zmr(char **str)
 		free(str[i]);
 		i++;
 	}
+	free(str);
+	return (NULL);
 }
 
 static int	count_words(const char *str, char charset)
@@ -106,7 +108,7 @@ char	**ft_split(const char *str, char c)
 		{
 			strings[i++] = ready_word(str, c);
 			if (!strings[i])
-				free_zmr(strings);
+				return (free_zmr(strings));
 		}
 		while (*str && *str != c)
 			str++;
