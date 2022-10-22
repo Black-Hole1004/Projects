@@ -21,7 +21,7 @@ CFLAGS = -Wall -Wextra -Werror
 all : $(NAME)
 
 $(NAME) : $(OBJECT) libft.h
-	ar rc $(NAME) $(OBJECT)
+	ar rcs $(NAME) $(OBJECT)
 
 %.o: %.c libft.h
 	$(CC) $(CFLAGS) -c $< -o $@

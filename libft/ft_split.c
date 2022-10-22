@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 10:30:40 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/21 15:40:11 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/22 18:23:54 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,16 @@ l’aide du caractère ’c’, utilisé comme délimiteur.
 Le tableau doit être terminé par NULL.*/
 
 /* [crash]: you did not protect your split*/
-static int	is_charset(char c, char charset)
+static void	free_zmr(char **str)
 {
-	if (c == charset)
-		return (1);
-	return (0);
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		free(str[i]);
+		i++;
+	}
 }
 
 static int	count_words(const char *str, char charset)
@@ -43,11 +48,11 @@ static int	count_words(const char *str, char charset)
 	i = 0;
 	while (str[i] != '\0')
 	{
-		while (str[i] != '\0' && is_charset(str[i], charset))
+		while (str[i] != '\0' && str[i] == charset)
 			i++;
 		if (str[i] != '\0')
 			count++;
-		while (str[i] != '\0' && !is_charset(str[i], charset))
+		while (str[i] != '\0' && str[i] != charset)
 			i++;
 	}
 	return (count);
@@ -58,7 +63,7 @@ static int	word_length(const char *str, char charset)
 	int	i;
 
 	i = 0;
-	while (str[i] && !is_charset(str[i], charset))
+	while (str[i] && str[i] != charset)
 		i++;
 	return (i);
 }
@@ -95,14 +100,15 @@ char	**ft_split(const char *str, char c)
 		return (NULL);
 	while (*str != '\0')
 	{
-		while (*str != '\0' && is_charset(*str, c))
+		while (*str != '\0' && *str == c)
 			str++;
 		if (*str != '\0')
 		{
-			strings[i] = ready_word(str, c);
-			i++;
+			strings[i++] = ready_word(str, c);
+			if (!strings[i])
+				free_zmr(strings);
 		}
-		while (*str && !is_charset(*str, c))
+		while (*str && *str != c)
 			str++;
 	}
 	strings[i] = 0;
