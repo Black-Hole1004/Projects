@@ -16,22 +16,27 @@ BONUS_OBJECT = $(BONUS_SRC:.c=.o)
 
 CC = gcc
 
+echo1 = @echo "\033[92mCompiled all the files successfully !!! :) \033[0m"
+echo2 = @echo "\033[92mCompiled bonus files successfully !!! :) \033[0m"
+
 CFLAGS = -Wall -Wextra -Werror
 
 all : $(NAME)
 
 $(NAME) : $(OBJECT) libft.h
-	ar rcs $(NAME) $(OBJECT)
+	@$(echo1)
+	@ar rcs $(NAME) $(OBJECT)
 
 %.o: %.c libft.h
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 #  so: #for linux os
 # 	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC)
 # 	$(CC) -nostartfiles -shared -o libft.so $(OBJECT) #creating shared library .so
 
-bonus : $(OBJECT) $(BONUS_OBJECT)
-	ar rc $(NAME) $(OBJECT) $(BONUS_OBJECT)
+bonus : $(OBJECT) $(BONUS_OBJECT) libft.h
+	@$(echo2)
+	@ar rc $(NAME) $(OBJECT) $(BONUS_OBJECT)
 
 # so_bonus: 
 # 	$(CC) -nostartfiles -fPIC $(CFLAGS) $(BONUS_SRC)
