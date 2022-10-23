@@ -6,11 +6,11 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 12:12:35 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/22 11:48:26 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/23 12:37:17 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_bonus.h"
+#include "libft.h"
 /* Function name ft_lstdelone
 Prototype void ft_lstdelone(t_list *lst, void (*del)(void
 *));

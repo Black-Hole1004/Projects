@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 10:37:49 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/22 18:09:21 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/23 12:40:57 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	int		alloc;
 
 	i = 0;
+	if (!s)
+		return (NULL);
 	if (len > ft_strlen(s) - start)
 		alloc = ft_strlen(s) - start;
 	else if (start > ft_strlen(s))

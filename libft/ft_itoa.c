@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 17:26:42 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/21 15:42:03 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/23 12:42:17 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static int	ft_get_len(long nbr)
 	return (b);
 }
 
-char	*ft_convert(long nbr, char *s, int lennbr)
+static char	*ft_convert(long nbr, char *s, int lennbr)
 {
 	if (nbr < 0)
 	{
@@ -63,10 +63,6 @@ char	*ft_itoa(int n)
 	char	*s;
 
 	nbr = n;
-	if (nbr > 9223372036854775807)
-		return ("-1");
-	else if (nbr < -9223372036854775807)
-		return ("0");
 	lennbr = ft_get_len(nbr) - 1;
 	s = (char *)malloc((lennbr + 2) * sizeof(char));
 	if (!s)

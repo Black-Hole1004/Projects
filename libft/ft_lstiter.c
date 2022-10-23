@@ -6,11 +6,11 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 13:11:56 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/22 11:48:31 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/23 12:37:13 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_bonus.h"
+#include "libft.h"
 /* Function name ft_lstiter
 Prototype void ft_lstiter(t_list *lst, void (*f)(void *));
 Fichiers de rendu -

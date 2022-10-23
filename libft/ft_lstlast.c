@@ -6,11 +6,11 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 12:03:59 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/22 11:48:36 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/23 12:37:10 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_bonus.h"
+#include "libft.h"
 /* Function name ft_lstlast
 Prototype t_list *ft_lstlast(t_list *lst);
 Fichiers de rendu -
