@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/10/25 18:47:21 by ahmaymou          #+#    #+#              #
+#    Updated: 2022/10/25 18:47:22 by ahmaymou         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = libft.a
 SRC = ft_isalpha.c ft_memcmp.c ft_strdup.c ft_strnstr.c \
         ft_atoi.c ft_isascii.c ft_memcpy.c ft_strlcat.c    ft_strrchr.c \
@@ -18,29 +30,26 @@ CC = cc
 
 echo1 = @echo "\033[92mCompiled all the files successfully !!! :) \033[0m"
 echo2 = @echo "\033[92mCompiled bonus files successfully !!! :) \033[0m"
+echo3 = @echo "\033[36mArchive created successfully !!! :) \033[m"
+echo4 = @echo "\033[31mbonus added to the archive successfully !!! :) \033[m"
 
 FLAGS = -Wall -Wextra -Werror
 
 all : $(NAME)
 
-$(NAME) : $(OBJECT) libft.h
-	@$(echo1)
-	@ar rcs $(NAME) $(OBJECT)
-
 %.o: %.c libft.h
 	@$(CC) $(FLAGS) -c $< -o $@
 
-#  so: #for linux os
-# 	$(CC) -nostartfiles -fPIC $(FLAGS) $(SRC)
-# 	$(CC) -nostartfiles -shared -o libft.so $(OBJECT) #creating shared library .so
+$(NAME) : $(OBJECT) libft.h
+	@$(echo1)
+	@ar rc $(NAME) $(OBJECT)
+	@$(echo3)
 
 bonus : $(OBJECT) $(BONUS_OBJECT) libft.h
 	@$(echo2)
 	@ar rc $(NAME) $(OBJECT) $(BONUS_OBJECT)
+	@$(echo4)
 
-# so_bonus: 
-# 	$(CC) -nostartfiles -fPIC $(FLAGS) $(BONUS_SRC)
-# 	$(CC) -nostartfiles -shared -o libft.so $(BONUS_OBJECT)
 clean :
 	@rm -f $(OBJECT) $(BONUS_OBJECT)
 
@@ -49,4 +58,6 @@ fclean : clean
 
 re : fclean all
 
-.PHONY : clean fclean all re bonus
+a : all bonus
+	
+#.PHONY : clean fclean all re bonus
