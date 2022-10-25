@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 11:23:07 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/21 15:40:02 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/24 10:28:29 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,22 +43,22 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 	}
 }
 
-// void	ft_lm9awwed(unsigned int zid, char *s)
-// {
-// 	int	i;
+/*void	ft_func(unsigned int zid, char *s)
+{
+	int	i;
 
-// 	i = 0;
-// 	while (s[i])
-// 	{
-// 		s[i] = zid;
-// 		i++;
-// 	}
-// }
+	i = 0;
+	while (s[i])
+	{
+		s[i] = zid;
+		i++;
+	}
+}
 
-// int	main(void)
-// {
-// 	char	array[] = "hello world !";
-// 	ft_striteri(array, &ft_lm9awwed);
-// 	printf("%s\n",array);
-// 	return (0);
-// }
+int	main(void)
+{
+	char	array[] = "hello world !";
+	ft_striteri(array, &ft_func);
+	printf("%s\n",array);
+	return (0);
+} */

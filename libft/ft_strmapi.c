@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 11:40:29 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/21 15:39:34 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/24 10:27:47 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,18 +50,18 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	return (to_return);
 }
 
-// char	ft_lm9awwed(unsigned int zid, char c)
-// {
-// 	c += zid;
-// 	return (c);
-// }
+/*char	ft_func(unsigned int zid, char c)
+{
+	c += zid;
+	return (c);
+}
 
-// int	main(void)
-// {
-// 	char	array[] = "hello world !";
-// 	char	*array2;
+int	main(void)
+{
+	char	array[] = "hello world !";
+	char	*array2;
 
-// 	array2 = ft_strmapi(array, &ft_lm9awwed);
-// 	printf("%s\n",array2);
-// 	return (0);
-// }
+	array2 = ft_strmapi(array, &ft_func);
+	printf("%s\n",array2);
+	return (0);
+} */

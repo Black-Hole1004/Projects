@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 13:17:34 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/23 12:37:06 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/24 12:12:06 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	int i = 0;
 	str1 = (const char *) str;
 	while (str1[i++])
-	{
 		ft_toupper(str1[i]);
-	}
 	return ((void *)str1);
 }
 

@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 14:32:05 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/23 17:27:30 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/25 10:33:52 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ int	is_whitespace(char c)
 
 int	ft_atoi(const char *str)
 {
-	unsigned long	result;
-	int				sign;
+	unsigned long long	result;
+	int					sign;
 
 	result = 0;
 	sign = 1;
@@ -48,6 +48,10 @@ int	ft_atoi(const char *str)
 	}
 	while (*str && ft_isdigit((*str)))
 	{
+		if (result >= 9223372036854775807UL && sign == 1)
+			return (-1);
+		else if (result >= 9223372036854775808UL && sign == (-1))
+			return (0);
 		result *= 10;
 		result += *str - '0';
 		str++;

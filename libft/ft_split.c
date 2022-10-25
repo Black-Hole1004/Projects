@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 10:30:40 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/23 15:04:49 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/24 10:31:08 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ l’aide du caractère ’c’, utilisé comme délimiteur.
 Le tableau doit être terminé par NULL.*/
 
 /* [crash]: you did not protect your split*/
-char	**free_all(char **str)
+static char	**free_all(char **str)
 {
 	int	i;
 
@@ -79,6 +79,8 @@ static char	*ready_word(const char *str, char charset)
 	i = 0;
 	length_of_word = word_length(str, charset);
 	word = (char *)malloc(sizeof(char) * (length_of_word + 1));
+	if (!word)
+		return (NULL);
 	while (i < length_of_word)
 	{
 		word[i] = str[i];

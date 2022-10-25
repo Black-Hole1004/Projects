@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 10:37:49 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/23 12:40:57 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/24 17:01:23 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,30 +36,26 @@ s = ft_substr(str, 42, 42000000);
 	 7 mcheck(s, 1); free(s); free(str) 
 	 s = ft_substr("tripouille", 1, 1);
 	 3  check(!strcmp(s, "r"));
-	 4  mcheck(s, 2); free(s); */
+	 4  mcheck(s, 2); free(s); 
+	 ft_substr("hola", 4294967295, 18446744073709551615) */
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*substr;
-	int		i;
-	int		alloc;
+	char		*substr;
+	size_t		i;
 
 	i = 0;
 	if (!s)
 		return (NULL);
-	if (len > ft_strlen(s) - start)
-		alloc = ft_strlen(s) - start;
-	else if (start > ft_strlen(s))
-		alloc = 0;
-	else
-		alloc = len;
-	substr = (char *)malloc((alloc + 1) * sizeof(char));
+	if (len > ft_strlen(s))
+		len = ft_strlen(s);
+	substr = malloc(sizeof(char) * (len + 1));
 	if (!substr)
 		return (NULL);
-	while (alloc)
+	while (i < len && start <= ft_strlen(s))
 	{
-		substr[i++] = s[start];
+		substr[i] = s[start];
 		start++;
-		alloc--;
+		i++;
 	}
 	substr[i] = '\0';
 	return (substr);
