@@ -6,17 +6,11 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 17:26:42 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/23 12:42:17 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/26 17:05:12 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-/* ft_itoa:       [FAILED] [OK] [OK] [FAILED] [FAILED] [OK] [KO] [KO] [OK]
-[fail]: your itoa does not work with basic input
-[fail]: your itoa does not work with min int
-[fail]: your itoa don't set \0 at the end of the string
-[KO]: your itoa does not allocate the good size so the \0 test may be false
-[KO]: your itoa does not allocate the good size so the \0 test may be false*/
 
 static int	ft_get_len(long nbr)
 {
@@ -58,9 +52,9 @@ static char	*ft_convert(long nbr, char *s, int lennbr)
 
 char	*ft_itoa(int n)
 {
-	int		lennbr;
-	long	nbr;
-	char	*s;
+	int			lennbr;
+	int			nbr;
+	char		*s;
 
 	nbr = n;
 	lennbr = ft_get_len(nbr) - 1;
