@@ -6,22 +6,12 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 11:53:38 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/23 12:37:29 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/10/26 16:35:33 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-/* Function name ft_lstadd_back
-Prototype void ft_lstadd_back(t_list **lst, t_list *new);
-Fichiers de rendu -
-Paramètres lst: L’adresse du pointeur vers le premier élément
-de la liste.
-new: L’adresse du pointeur vers l’élément à
-rajouter à la liste.
-Valeur de retour Aucune
-Fonctions externes autorisées
-Aucune
-Description Ajoute l’élément ’new’ à la fin de la liste.*/
+
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*temp;
