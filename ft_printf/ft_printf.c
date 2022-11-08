@@ -1,35 +1,53 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/08 13:18:19 by ahmaymou          #+#    #+#             */
+/*   Updated: 2022/11/08 18:32:27 by ahmaymou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-// %d %i %s %c %i %x %X %p % 
+int	ft_printf(const char *str, ...)
+{
+	va_list	argptr;
+	int		len;
 
-int ft_printf(const char *str, ...){
-	va_list argptr;
+	len = 0;
 	va_start(argptr, str);
-
-	while (*str){
+	while (*str)
+	{
 		if (*str == '%')
 		{
 			str++;
-			print_normal(*str, *(str + 1), argptr);
+			if (!(*str))
+				break ;
+			print_normal(*str, argptr, &len);
 		}
 		else
-			ft_putchar_fd(*str, 1);
-	str++;
+			ft_putchar_fd(*str, 1, &len);
+		str++;
 	}
 	va_end(argptr);
-	return (0);
+	return (len);
 }
 
-int main()
-{
-	int x = 584525;
-	// "0x00007ffee4fa869f"
-	char d = 'c';
-	 ft_printf("%#%\t%p\t%c\n", &x, d);
-	 printf("%#%\t%p\t%c\t", &x, d);
-	// printf("%x\n%p\n%c\n", x, &x, d);
-	//ft_printf("%#x\n", x);
-	//printf("%s %d\n", deal_hexa(x, 'X'), ft_get_len(x));
-	// printf("%p \n ", &d);
-	//ft_printf("abcdef %d %c %x %X \n", x, d , x , x);
-}
+// int	main(void)
+// {
+// 	int		x;
+// 	char	d;
+
+// 	x = 584525;
+// 	d = 'c';
+// 	ft_printf("%d \n", ft_printf("hiuhh%"));
+// 	printf("%d \n", printf("%%hello"));
+// 	printf("%x \n %p \n %c \n", x, &x, d);
+// 	ft_printf("%#x\n", x);
+// 	ft_printf("%s %d\n", "suiiiiiiiiiiiii", -12345);
+// 	ft_printf("%p \n ", &d);
+// 	ft_printf("abcdef %d %c %x %X \n", x, d, x, x);
+// }

@@ -1,6 +1,23 @@
-NAME = libft_printf.a
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/11/08 13:18:08 by ahmaymou          #+#    #+#              #
+#    Updated: 2022/11/08 15:46:10 by ahmaymou         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-SRC = ft_printf.c
+NAME = libftprintf.a
+
+SRC = 	ft_printf.c\
+		ft_printf.c\
+		ft_printf_utils.c\
+		ft_putchar_fd.c\
+		ft_putnbr_fd.c\
+		ft_putstr_fd.c\
 
 OBJ = $(SRC:.c=.o)
 
@@ -20,7 +37,7 @@ all : $(NAME)
 $(NAME) : $(OBJ) ft_printf.h
 	@$(echo1)
 	@ar rc $(NAME) $(OBJ)
-	@cd libft && make bonus && cp libft.a ../
+	#@cd libft && make bonus && cp libft.a ../
 	@$(echo3)
 
 clean :
