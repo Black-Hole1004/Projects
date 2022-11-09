@@ -35,19 +35,3 @@ int	ft_printf(const char *str, ...)
 	va_end(argptr);
 	return (len);
 }
-
-// int	main(void)
-// {
-// 	int		x;
-// 	char	d;
-
-// 	x = 584525;
-// 	d = 'c';
-// 	ft_printf("%d \n", ft_printf("hiuhh%"));
-// 	printf("%d \n", printf("%%hello"));
-// 	printf("%x \n %p \n %c \n", x, &x, d);
-// 	ft_printf("%#x\n", x);
-// 	ft_printf("%s %d\n", "suiiiiiiiiiiiii", -12345);
-// 	ft_printf("%p \n ", &d);
-// 	ft_printf("abcdef %d %c %x %X \n", x, d, x, x);
-// }

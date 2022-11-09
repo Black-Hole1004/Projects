@@ -87,6 +87,3 @@ void	print_normal(char str, va_list argptr, int *len)
 	else
 		ft_putchar_fd(str, 1, len);
 }
-
-// void	print_handle_space()
-// void	print_handle_plus()
