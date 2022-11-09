@@ -12,28 +12,15 @@
 
 #include "ft_printf.h"
 
-int	ft_get_len(size_t nbr)
-{
-	int	i;
-
-	i = 0;
-	while (nbr)
-	{
-		nbr = nbr / 16;
-		i++;
-	}
-	return (i);
-}
-
 void	ft_putnbr_fd_unsigned(unsigned int nb, int fd, int *len)
 {
 	if (nb >= 10)
 	{
-		ft_putnbr_fd(nb / 10, fd, len);
-		ft_putnbr_fd(nb % 10, fd, len);
+		ft_putnbr_fd_unsigned(nb / 10, fd, len);
+		ft_putnbr_fd_unsigned(nb % 10, fd, len);
 	}
 	if (nb < 10 && nb >= 0)
-		ft_putchar_fd(nb + 48, fd, len);
+		ft_putchar_fd_unsigned(nb + 48, fd, len);
 }
 
 int	ft_putnbr_base(size_t nb, int *len, int X, int to_do)
