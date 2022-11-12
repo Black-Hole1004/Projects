@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 11:05:21 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/10/25 13:48:28 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/11/12 15:49:49 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,18 @@ char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char				*to_return;
 	unsigned int		i;
+	unsigned int		len;
+
 
 	if (!s1 || !s2)
 		return (NULL);
+	len = ft_strlen(s1) + ft_strlen(s2);
 	i = 0;
-	to_return = (char *)malloc((ft_strlen(s1) + ft_strlen(s2) + 1)
+	to_return = (char *)malloc((len + 1)
 			* sizeof(char));
 	if (!to_return)
 		return (NULL);
-	while (i < ft_strlen(s1))
-	{
-		to_return[i] = s1[i];
-		i++;
-	}
-	while (i < ft_strlen(s2) + ft_strlen(s1))
-	{
-		to_return[i] = s2[i - ft_strlen(s1)];
-		i++;
-	}
-	to_return[i] = '\0';
+	ft_strlcpy(to_return, s1, ft_strlen(s1) + 1);
+	ft_strlcat(to_return, s2, len + 1);
 	return (to_return);
 }

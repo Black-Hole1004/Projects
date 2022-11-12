@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 13:18:19 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/11/08 18:56:45 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/11/10 18:40:25 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,3 +35,10 @@ int	ft_printf(const char *str, ...)
 	va_end(argptr);
 	return (len);
 }
+
+// int main()
+// {
+// 	//int x = 0;
+// 	//printf("%%%%%%%%");
+// 	//ft_printf("%p\t%x", &x, 1123455555);
+// }

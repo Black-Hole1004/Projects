@@ -1,61 +1,89 @@
-#include <unistd.h>
-#include <fcntl.h>
-#include <stdio.h>
-#include <string.h>
-#include <errno.h>
-#include <libgen.h>
-/*EXAMPLES
-       basename /usr/bin/sort
-              -> "sort"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/11 16:18:14 by ahmaymou          #+#    #+#             */
+/*   Updated: 2022/11/12 19:40:52 by ahmaymou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-       basename include/stdio.h .h
-              -> "stdio"
+#include "get_next_line.h"
 
-       basename -s .h include/stdio.h
-              -> "stdio"
-
-       basename -a any/str1 any/str2
-              -> "str1" followed by "str2"
-Files to turn in : Makefile, and files needed for your program
-Allowed functions : close, open, read, write, strerror, basename
-Notes : n/a
-• Create a program called ft_cat which does the same thing as the system’s cat
-command-line.
-• You don’t have to handle options.
-• The submission directory should have a Makefile with the following rules : all,
-clean, fclean.
-• You may use the variable errno (check the man for Errno).
-• You should read the man of all the authorized functions
-• You can only do this exercise by declaring a fixed-sized array. This array will have
-a size limited to a little less than 30 ko. In order to test that size-limit, use the
-ulimit command-line in your Shell. */
-
-int main(int ac, char **av)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	while (1)
-	{	
-    	char *c = NULL;
-    	char b[256] = "ft_cat: ";
-   		 strcat(b, basename(av[1]));
-    	int fd;
-    	if (ac < 2)
-        	write(1, "file name is missing\n", 22);
-    	else if (ac > 2)
-        	write(1, "too many arguments\n", 20);
-    	else
-    	{
-        	if ((fd = open(av[1], O_RDONLY)) == -1)
-            	perror(b);
-        	else
-            	while (read(fd, &c, 1) && *c != '\n')
-           	 	{
-                	write(1, &c, 1);
-            	}
-        // c[sz] = '\0';
-        //  write(2,&c,1)
-    	}
-		if (*c == EOF)
-			break;
+	char				*to_return;
+	unsigned int		i;
+	unsigned int		len;
+
+	if (!s1 || !s2)
+		return (NULL);
+	len = ft_strlen(s1) + ft_strlen(s2);
+	i = 0;
+	to_return = (char *)malloc((len + 1)
+			* sizeof(char));
+	if (!to_return)
+		return (NULL);
+	ft_strlcpy(to_return, s1, ft_strlen(s1) + 1);
+	ft_strlcat(to_return, s2, len + 1);
+	return (to_return);
+}
+
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+{
+	size_t	len;
+
+	len = ft_strlen(src);
+	if (!dstsize)
+		return (len);
+	while (*src && (dstsize - 1))
+	{
+		*dst = *src;
+		dst++;
+		src++;
+		dstsize--;
 	}
-	return (0);
+	*dst = '\0';
+	return (len);
+}
+
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+{
+	size_t	ls;
+	size_t	ld;
+	size_t	i;
+
+	ls = ft_strlen(src);
+	if (!dst && !dstsize)
+		return (ls);
+	ld = ft_strlen(dst);
+	if (!dstsize || dstsize <= ld)
+		return (ls + dstsize);
+	i = 0;
+	while (src[i] && (i < (dstsize - ld - 1)))
+	{
+		dst[ld + i] = src[i];
+		i++;
+	}
+	dst[ld + i] = '\0';
+	return (ls + ld);
+}
+
+char	*ft_strdup(void)
+{
+	char	*copy;
+
+	copy = (char *)malloc(1);
+	if (!copy)
+		return (NULL);
+	copy[0] = 0;
+	// copy(copy, s1, len + 1);
+	return (copy);
+}
+
+char	*get_next_line(int fd)
+{
+	return (line(fd));
 }
