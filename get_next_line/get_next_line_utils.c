@@ -6,13 +6,13 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 16:18:11 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/11/12 19:49:43 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/11/13 16:28:58 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int	ft_strlen(const char *s)
+unsigned int	ft_strlen(const char *s)
 {
 	int	i;
 
@@ -22,7 +22,7 @@ int	ft_strlen(const char *s)
 	
 	while (s[i])
 		i++;
-	return (i);
+	return ((unsigned int)i);
 }
 
 int	newline_index(char	*buff)
@@ -51,49 +51,77 @@ bool	ft_strchr1(const char *s, int c)
 	return (false);
 }
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_substr(char const *s, unsigned int start, unsigned int len)
 {
-	unsigned char	c1;
+	char					*substr;
+	unsigned int			i;
 
-	c1 = c;
-	if (c1 == '\0')
-		return ((char *)(s + ft_strlen(s)));
-	while (*s)
+	i = 0;
+	if (!s)
+		return (NULL);
+	if (len > ft_strlen(s))
+		len = ft_strlen(s);
+	substr = malloc(sizeof(char) * (len + 1));
+	if (!substr)
+		return (NULL);
+	while (i < len && start <= ft_strlen(s))
 	{
-		if (*s == c1)
-			return ((char *)s + 1);
-	s++;
+		substr[i] = s[start];
+		start++;
+		i++;
 	}
-	return (0);
+	//free((char *)s);
+	substr[i] = '\0';
+	return (substr);
 }
 
-char *line(int fd)
+char	*ft_strchr(char *s, int c)
+{
+	char	*s1;
+	unsigned int		i;
+
+	i = 0;
+	s1 = (char *)malloc(sizeof(char) * (ft_strlen(s) - c) + 1);
+	while (i < ft_strlen(s) - c)
+	{
+		s1[i] = s[i];
+		i++;
+	}
+	s1[i] = '\0';
+	//free(s);
+	return (s1);
+}
+
+char *line(int fd, int is_read)
 {
 	static char	*buffer;
 	char		*line;
-	char		*tmp;
 	char		buff[BUFFER_SIZE + 1];
-	int			is_read = 1;
-	//printf(">----->:%s\n", buffer);
-	//is_read = read(fd, buff, BUFFER_SIZE);
+
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
+	if (!buffer)
+		buffer = ft_strdup();
 	while (is_read && !ft_strchr1(buffer, '\n'))
 	{
 		is_read = read(fd, buff, BUFFER_SIZE);
 		if (is_read < 0)
+		{
+			free(buffer);
 			return NULL;
-		if (!buffer)
-			buffer = ft_strdup();
-		tmp = buffer;
+		}
+		buff[is_read] = '\0';
 		buffer = ft_strjoin(buffer, buff);
-		if (*tmp != 0)
-			free(tmp);
+	}
+	if (!(*buffer) && !is_read)
+	{
+		free(buffer);
+		return (NULL);
 	}
 	line = malloc(newline_index(buffer) + 1);
 	if (!line)
 		return (NULL);
-	ft_strlcpy(line, buffer, newline_index(buffer) + 1);
-	buffer = ft_strchr(buffer, '\n');
+	line = ft_substr(buffer , 0, newline_index(buffer));
+	buffer = ft_strchr(buffer, newline_index(buffer));
 	return (line);
 }

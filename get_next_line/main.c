@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 12:14:19 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/11/12 20:55:57 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/11/13 13:50:33 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,16 @@
 int	main(void)
 {
 	int	fd;
-	fd = open("test.txt", O_RDONLY);
-	printf("%s", line(fd));
-	printf("%s", line(fd));
-	printf("%s", line(fd));
-	printf("%s", line(fd));
-	printf("%s", line(fd));
-	printf("%s", line(fd));
-	// printf("%s\n", line(fd));
-	// printf("%s\n", line(fd));
-	// printf("%s\n", line(fd));
-	// printf("%s\n", line(fd));
-	// printf("%s\n", line(fd));
-	// printf("%s\n", line(fd));
-}
+	int	i;
+	char *s;
+
+	i = 0;
+	fd = open("text.txt", O_RDONLY);
+	s = line(fd, 1);
+	while (s)
+	{
+		printf("%s", s);
+		s = line(fd, 1);
+	}
+	while(1);
+	}

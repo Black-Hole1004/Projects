@@ -6,13 +6,13 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 16:18:14 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/11/12 19:40:52 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/11/13 14:03:58 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	char				*to_return;
 	unsigned int		i;
@@ -28,10 +28,11 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	ft_strlcpy(to_return, s1, ft_strlen(s1) + 1);
 	ft_strlcat(to_return, s2, len + 1);
+	free(s1);
 	return (to_return);
 }
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+size_t ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
 	size_t	len;
 
@@ -79,11 +80,10 @@ char	*ft_strdup(void)
 	if (!copy)
 		return (NULL);
 	copy[0] = 0;
-	// copy(copy, s1, len + 1);
 	return (copy);
 }
 
 char	*get_next_line(int fd)
 {
-	return (line(fd));
+	return (line(fd, 1));
 }

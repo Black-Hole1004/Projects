@@ -1,8 +1,3 @@
-
-
-
-
-
 Welcome to the 2022
 Common Weakness Enumeration
 (CWE™) Top 25 Most Dangerous
@@ -477,4 +472,8 @@ Here is a catalogue of predefined implicit rules which are always available unle
 
 This manual only documents the default rules available on POSIX-based operating systems. Other operating systems, such as VMS, Windows, OS/2, etc. may have different sets of default rules. To see the full list of default rules and variables available in your version of GNU make, run ‘make -p’ in a directory with no makefile.
 
-Not all of these rules will always be defined, even when the ‘-r’ option is not given. Many of the predefined implicit rules are implemented in make as suffix rules, so which ones will be defined depends on the suffix list (the list of prerequisites of the special target .SUFFIXES). The default suffix list is: .out, .a, .ln, .o, .c, .cc, .C, .cpp, .p, .f, .F, .m, .r, .y, .l, .ym, .lm, .s, .S, .mod, .sym, .def, .h, .info, .dvi, .tex, .texinfo, .texi, .txinfo, .w, .ch .web, .sh, .elc, .el. All of the implicit rules described below whose prerequisites have one of these suffixes are actually suffix rules. If you modify the suffix list, the only predefined suffix rules in effect will be those named by one or two of the suffixes that are on the list you specify; rules whose suffixes fail to be on the list are disabled. See Old-Fashioned Suffix Rules, for full details on suffix rules.
+Not all of these rules will always be defined, even when the ‘-r’ option is not given. Many of the predefined implicit rules are implemented in make as suffix rules,
+so which ones will be defined depends on the suffix list (the list of prerequisites of the special target .SUFFIXES). The default suffix list is: .out, .a, .ln, .o, .c, .cc, .C, .cpp, .p, .f, .F, .m, .r, .y, .l, .ym, .lm, .s, .S, .mod, .sym, .def, .h, .info, .dvi, .tex, .texinfo, .texi,
+.txinfo, .w, .ch .web, .sh, .elc, .el. All of the implicit rules described below whose prerequisites have one of these suffixes are actually suffix rules. If you modify
+the suffix list, the only predefined suffix rules in effect will be those named by one or two of the suffixes that are on the list you specify; rules whose suffixes 
+fail to be on the list are disabled. See Old-Fashioned Suffix Rules, for full details on suffix rules.
