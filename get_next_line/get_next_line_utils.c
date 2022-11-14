@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 16:18:11 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/11/14 15:54:24 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/11/14 18:52:43 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,13 +70,13 @@ char	*line(int fd, int is_read)
 
 	if (fd < 0 || BUFFER_SIZE < 0)
 		return (NULL);
-	else if (!buffer)
-		buffer = ft_strdup();
 	while (is_read && !ft_strchr1(buffer, '\n'))
 	{
 		is_read = read(fd, buff, BUFFER_SIZE);
-		if (is_read < 0)
-			return (free(buffer), NULL);
+		if (is_read == -1)
+			return (NULL);
+		if (!buffer)
+			buffer = ft_strdup();
 		buff[is_read] = '\0';
 		buffer = ft_strjoin(buffer, buff);
 	}

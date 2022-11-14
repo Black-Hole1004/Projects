@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 16:18:14 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/11/14 16:07:06 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/11/14 18:49:28 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,27 @@
 
 char	*ft_strjoin(char *s1, char *s2)
 {
-	char				*to_return;
-	unsigned int		i;
-	unsigned int		len;
+	char			*to_return;
+	unsigned int	i;
+	unsigned int	len;
+	unsigned int	len_s;
 
 	if (!s1 || !s2)
 		return (NULL);
-	len = ft_strlen(s1) + ft_strlen(s2);
+	len_s = ft_strlen(s1);
+	len = len_s + ft_strlen(s2);
 	i = 0;
 	to_return = (char *)malloc((len + 1)
 			* sizeof(char));
 	if (!to_return)
 		return (NULL);
-	ft_strlcpy(to_return, s1, ft_strlen(s1) + 1);
-	ft_strlcat(to_return, s2, len + 1);
+	ft_strlcpy(to_return, s1, len_s + 1);
+	while (s2[i] && (i < (len - len_s)))
+	{
+		to_return[len_s + i] = s2[i];
+		i++;
+	}
+	to_return[len] = '\0';
 	free(s1);
 	return (to_return);
 }
@@ -50,28 +57,6 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	return (len);
 }
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
-{
-	size_t	ls;
-	size_t	ld;
-	size_t	i;
-
-	ls = ft_strlen(src);
-	if (!dst && !dstsize)
-		return (ls);
-	ld = ft_strlen(dst);
-	if (!dstsize || dstsize <= ld)
-		return (ls + dstsize);
-	i = 0;
-	while (src[i] && (i < (dstsize - ld - 1)))
-	{
-		dst[ld + i] = src[i];
-		i++;
-	}
-	dst[ld + i] = '\0';
-	return (ls + ld);
-}
-
 char	*ft_strdup(void)
 {
 	char	*copy;
@@ -91,6 +76,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	i = 0;
 	if (!s)
 		return (NULL);
+	if (!(*s))
+	{
+		free((char *)s);
+		return (NULL);
+	}
 	if (len > ft_strlen(s))
 		len = ft_strlen(s);
 	substr = malloc(sizeof(char) * (len + 1));
