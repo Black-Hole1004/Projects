@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 16:18:14 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/11/14 18:49:28 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/11/14 20:44:20 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		free((char *)s);
 		return (NULL);
 	}
-	if (len > ft_strlen(s))
-		len = ft_strlen(s);
 	substr = malloc(sizeof(char) * (len + 1));
 	if (!substr)
 		return (NULL);

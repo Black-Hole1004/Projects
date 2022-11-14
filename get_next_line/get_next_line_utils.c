@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 16:18:11 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/11/14 18:52:43 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/11/14 20:38:08 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ char	*ft_save(char *s, int c, unsigned int ls)
 	unsigned int		i;
 
 	i = 0;
-	s1 = (char *)malloc(sizeof(char) * (ls - c) + 1);
 	s1 = ft_substr(s, c, ls - c + 1);
 	free(s);
 	return (s1);
@@ -78,10 +77,10 @@ char	*line(int fd, int is_read)
 		if (!buffer)
 			buffer = ft_strdup();
 		buff[is_read] = '\0';
-		buffer = ft_strjoin(buffer, buff);
+			buffer = ft_strjoin(buffer, buff);
 	}
 	if (!(*buffer) && !is_read)
-		return (NULL);
+		return (free(buffer), NULL);
 	line = ft_substr(buffer, 0, newline_index(buffer));
 	buffer = ft_save(buffer, newline_index(buffer), ft_strlen(buffer));
 	return (line);
