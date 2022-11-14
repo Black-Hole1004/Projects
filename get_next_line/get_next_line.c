@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 16:18:14 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/11/13 14:03:58 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/11/14 16:07:06 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	return (to_return);
 }
 
-size_t ft_strlcpy(char *dst, const char *src, size_t dstsize)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
 	size_t	len;
 
@@ -81,6 +81,25 @@ char	*ft_strdup(void)
 		return (NULL);
 	copy[0] = 0;
 	return (copy);
+}
+
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	char		*substr;
+	size_t		i;
+
+	i = 0;
+	if (!s)
+		return (NULL);
+	if (len > ft_strlen(s))
+		len = ft_strlen(s);
+	substr = malloc(sizeof(char) * (len + 1));
+	if (!substr)
+		return (NULL);
+	while (i < len && start <= ft_strlen(s))
+		substr[i++] = s[start++];
+	substr[i] = '\0';
+	return (substr);
 }
 
 char	*get_next_line(int fd)
