@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 11:45:46 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/11/15 12:37:16 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/11/15 19:02:38 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,13 +74,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t		i;
 
 	i = 0;
-	if (!s)
+	if (!s || !(*s))
 		return (NULL);
-	if (!(*s))
-	{
-		free((char *)s);
-		return (NULL);
-	}
 	substr = malloc(sizeof(char) * (len + 1));
 	if (!substr)
 		return (NULL);
@@ -92,7 +87,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 char	*get_next_line(int fd)
 {
-	if (fd < 0 || BUFFER_SIZE < 0)
+	if (fd < 0 || BUFFER_SIZE < 0 || fd >= OPEN_MAX)
 		return (NULL);
-	return (line(fd, 1, BUFFER_SIZE));
+	return (line_bonus(fd, 1, BUFFER_SIZE));
 }

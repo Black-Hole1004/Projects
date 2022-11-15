@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 16:18:11 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/11/15 12:33:24 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/11/15 17:57:01 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,24 +61,28 @@ char	*ft_save(char *s, int c, unsigned int ls)
 	return (s1);
 }
 
-char	*line(int fd, int is_read, unsigned int bf_size)
+char	*line(int fd, int is_read, unsigned int BF_SIZE)
 {
 	static char	*buffer;
 	char		*line;
-	char		buff[bf_size + 1];
+	char		buff[BF_SIZE + 1];
 
 	while (is_read && !ft_strchr1(buffer, '\n'))
 	{
-		is_read = read(fd, buff, bf_size);
+		is_read = read(fd, buff, BF_SIZE);
 		if (is_read < 0)
+		{
+			if (!buffer)
+				free(buffer);
 			return (NULL);
+		}
 		if (!buffer)
 			buffer = ft_strdup();
 		buff[is_read] = '\0';
 		buffer = ft_strjoin(buffer, buff);
 	}
-	if (!(*buffer) && !is_read)
-		return (free(buffer), NULL);
+	if (!buffer && !is_read)
+		return (NULL);
 	line = ft_substr(buffer, 0, newline_index(buffer));
 	buffer = ft_save(buffer, newline_index(buffer), ft_strlen(buffer));
 	return (line);

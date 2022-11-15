@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 16:18:14 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/11/15 12:27:45 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/11/15 17:27:36 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,13 +74,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t		i;
 
 	i = 0;
-	if (!s)
+	if (!s || !(*s))
 		return (NULL);
-	if (!(*s))
-	{
-		free((char *)s);
-		return (NULL);
-	}
 	substr = malloc(sizeof(char) * (len + 1));
 	if (!substr)
 		return (NULL);
