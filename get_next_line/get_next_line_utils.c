@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 16:18:11 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/11/15 17:57:01 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/11/15 20:59:39 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,8 @@ char	*line(int fd, int is_read, unsigned int BF_SIZE)
 		is_read = read(fd, buff, BF_SIZE);
 		if (is_read < 0)
 		{
-			if (!buffer)
-				free(buffer);
+			free(buffer);
+			buffer = NULL;
 			return (NULL);
 		}
 		if (!buffer)

@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 11:46:01 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/11/15 19:04:04 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/11/15 21:02:22 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,11 @@ char	*line_bonus(int fd, int is_read, unsigned int BF_SIZE)
 	{
 		is_read = read(fd, buff, BF_SIZE);
 		if (is_read < 0)
+		{
+			free(buffer[fd]);
+			buffer[fd] = 0;
 			return (NULL);
+		}
 		if (!buffer[fd])
 			buffer[fd] = ft_strdup();
 		buff[is_read] = '\0';
