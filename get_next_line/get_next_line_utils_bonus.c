@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/11 16:18:11 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/11/15 12:33:24 by ahmaymou         ###   ########.fr       */
+/*   Created: 2022/11/15 11:46:01 by ahmaymou          #+#    #+#             */
+/*   Updated: 2022/11/15 12:37:45 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 unsigned int	ft_strlen(const char *s)
 {
@@ -63,23 +63,23 @@ char	*ft_save(char *s, int c, unsigned int ls)
 
 char	*line(int fd, int is_read, unsigned int bf_size)
 {
-	static char	*buffer;
+	static char	*buffer[OPEN_MAX];
 	char		*line;
 	char		buff[bf_size + 1];
 
-	while (is_read && !ft_strchr1(buffer, '\n'))
+	while (is_read && !ft_strchr1(buffer[fd], '\n'))
 	{
 		is_read = read(fd, buff, bf_size);
-		if (is_read < 0)
+		if (is_read == -1)
 			return (NULL);
-		if (!buffer)
-			buffer = ft_strdup();
+		if (!buffer[fd])
+			buffer[fd] = ft_strdup();
 		buff[is_read] = '\0';
-		buffer = ft_strjoin(buffer, buff);
+			buffer[fd] = ft_strjoin(buffer[fd], buff);
 	}
-	if (!(*buffer) && !is_read)
-		return (free(buffer), NULL);
-	line = ft_substr(buffer, 0, newline_index(buffer));
-	buffer = ft_save(buffer, newline_index(buffer), ft_strlen(buffer));
+	if (!(*buffer[fd]) && !is_read)
+		return (free(buffer[fd]), NULL);
+	line = ft_substr(buffer[fd], 0, newline_index(buffer[fd]));
+	buffer[fd] = ft_save(buffer[fd], newline_index(buffer[fd]), ft_strlen(buffer[fd]));
 	return (line);
 }

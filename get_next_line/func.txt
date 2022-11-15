@@ -1,0 +1,25 @@
+char	*line(int fd, int is_read)
+{
+	static char	*buffer;
+	char		*line;
+	char		buff[BUFFER_SIZE + 1];
+
+	if (fd < 0 || BUFFER_SIZE <= 0)
+		return (NULL);
+	while (is_read && !ft_strchr1(buffer, '\n'))
+	{
+		is_read = read(fd, buff, BUFFER_SIZE);
+		if (is_read < 0 || (!buffer && !is_read))
+			return (NULL);
+		buff[is_read] = '\0';
+		if (!buffer)
+			buffer = ft_strdup(buff);
+		else
+			buffer = ft_strjoin(buffer, buff);
+	}
+	// if (!(*buffer) && !is_read)
+	// 	return (NULL);
+	line = ft_substr(buffer, 0, newline_index(buffer));
+	buffer = ft_save(buffer, newline_index(buffer), ft_strlen(buffer));
+	return (line);
+}
