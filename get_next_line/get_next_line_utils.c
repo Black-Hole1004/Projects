@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 16:18:11 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/11/15 20:59:39 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/11/18 20:32:36 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,14 @@ char	*ft_save(char *s, int c, unsigned int ls)
 	return (s1);
 }
 
-char	*line(int fd, int is_read, unsigned int BF_SIZE)
+char	*line(int fd, int is_read, unsigned int BF_SIZE, char *line1)
 {
 	static char	*buffer;
-	char		*line;
-	char		buff[BF_SIZE + 1];
+	char		*buff;
 
+	buff = malloc(BF_SIZE + 1);
+	if (!buff)
+		return (NULL);
 	while (is_read && !ft_strchr1(buffer, '\n'))
 	{
 		is_read = read(fd, buff, BF_SIZE);
@@ -74,7 +76,7 @@ char	*line(int fd, int is_read, unsigned int BF_SIZE)
 		{
 			free(buffer);
 			buffer = NULL;
-			return (NULL);
+			return (free(buff), NULL);
 		}
 		if (!buffer)
 			buffer = ft_strdup();
@@ -82,8 +84,8 @@ char	*line(int fd, int is_read, unsigned int BF_SIZE)
 		buffer = ft_strjoin(buffer, buff);
 	}
 	if (!buffer && !is_read)
-		return (NULL);
-	line = ft_substr(buffer, 0, newline_index(buffer));
+		return (free(buff), NULL);
+	line1 = ft_substr(buffer, 0, newline_index(buffer));
 	buffer = ft_save(buffer, newline_index(buffer), ft_strlen(buffer));
-	return (line);
+	return (free(buff), line1);
 }
