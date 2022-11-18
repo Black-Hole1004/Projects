@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 11:45:46 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/11/18 20:36:01 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/11/18 20:43:12 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,8 +92,7 @@ char	*get_next_line(int fd)
 	char	*line1;
 
 	line1 = NULL;
-	if (fd < 0 || BUFFER_SIZE < 0 || fd >= OPEN_MAX
-		|| BUFFER_SIZE >= 2147483647)
+	if (fd < 0 || BUFFER_SIZE < 0 || fd >= OPEN_MAX)
 		return (NULL);
 	return (line_bonus(fd, 1, BUFFER_SIZE, line1));
 }
