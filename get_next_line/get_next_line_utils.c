@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 16:18:11 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/11/18 20:32:36 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/11/23 18:18:38 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,17 +61,17 @@ char	*ft_save(char *s, int c, unsigned int ls)
 	return (s1);
 }
 
-char	*line(int fd, int is_read, unsigned int BF_SIZE, char *line1)
+char	*line(int fd, int is_read, char *line1)
 {
 	static char	*buffer;
 	char		*buff;
 
-	buff = malloc(BF_SIZE + 1);
+	buff = malloc(BUFFER_SIZE + 1);
 	if (!buff)
 		return (NULL);
 	while (is_read && !ft_strchr1(buffer, '\n'))
 	{
-		is_read = read(fd, buff, BF_SIZE);
+		is_read = read(fd, buff, BUFFER_SIZE);
 		if (is_read < 0)
 		{
 			free(buffer);

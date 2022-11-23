@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 16:18:14 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/11/18 20:35:48 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/11/21 15:06:21 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,5 +94,5 @@ char	*get_next_line(int fd)
 	line1 = NULL;
 	if (fd < 0 || BUFFER_SIZE < 0)
 		return (NULL);
-	return (line(fd, 1, BUFFER_SIZE, line1));
+	return (line(fd, 1, line1));
 }

@@ -6,7 +6,7 @@
 /*   By: ahmaymou <ahmaymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 11:46:01 by ahmaymou          #+#    #+#             */
-/*   Updated: 2022/11/18 20:34:32 by ahmaymou         ###   ########.fr       */
+/*   Updated: 2022/11/21 14:12:19 by ahmaymou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,20 +61,21 @@ char	*ft_save(char *s, int c, unsigned int ls)
 	return (s1);
 }
 
-char	*line_bonus(int fd, int is_read, unsigned int BF_SIZE, char *line1)
+char	*line_bonus(int fd, int is_read, char *line1)
 {
 	static char	*buffer[OPEN_MAX];
 	char		*buff;
 
-	buff = malloc(BF_SIZE + 1);
+	buff = malloc(BUFFER_SIZE + 1);
+	if (!buff)
+		return (NULL);
 	while (is_read && !ft_strchr1(buffer[fd], '\n'))
 	{
-		is_read = read(fd, buff, BF_SIZE);
+		is_read = read(fd, buff, BUFFER_SIZE);
 		if (is_read < 0)
 		{
 			free(buffer[fd]);
-			buffer[fd] = 0;
-			return (free(buff), NULL);
+			return (buffer[fd] = 0, free(buff), NULL);
 		}
 		if (!buffer[fd])
 			buffer[fd] = ft_strdup();
